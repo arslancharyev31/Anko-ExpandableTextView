@@ -1,7 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-//apply plugin: 'kotlin'
 
 ext {
+    // Demo and lib versions
+    versionCode = 1
+    versionName = "1.0.0"
+
     // Sdk and tools
     minSdkVersion = 16
     targetSdkVersion = 25
@@ -22,7 +25,14 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
+
+        // Bintray plugins
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+
+        // Kotlin plugins
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlinVersion"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

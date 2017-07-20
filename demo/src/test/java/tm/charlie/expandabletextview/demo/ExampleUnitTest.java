@@ -1,4 +1,4 @@
-package tm.charlie.expandabletextview;
+package tm.charlie.expandabletextview.demo;
 
 import org.junit.Test;
 

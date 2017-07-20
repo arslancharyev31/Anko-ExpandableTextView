@@ -1,4 +1,4 @@
-package tm.charlie.expandabletextview;
+package tm.charlie.expandabletextview.demo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

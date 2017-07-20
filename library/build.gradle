@@ -9,9 +9,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
-
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -31,6 +30,32 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
     compile "org.jetbrains.anko:anko:$ankoVersion"
 }
+ext {
+    bintrayRepo = 'android'
+    bintrayName = 'Anko-ExpandableTextView'
+
+    publishedGroupId = 'tm.charlie.expandabletextview'
+    libraryName = 'Anko-ExpandableTextView'
+    artifact = 'library'
+
+    libraryDescription = 'Expandable TextView for Android. Written in Kotlin.'
+
+    siteUrl = 'https://github.com/arslancharyev31/Anko-ExpandableTextView'
+    gitUrl = 'https://github.com/arslancharyev31/Anko-ExpandableTextView.git'
+
+    libraryVersion = rootProject.ext.versionName
+
+    developerId = 'arslancharyev31'
+    developerName = 'Arslan'
+    developerEmail = 'arslancharyev31@gmail.com'
+
+    licenseName = 'The MIT License (MIT)'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ['MIT']
+}
+
+apply from: 'install.gradle'
+apply from: 'bintray.gradle'
