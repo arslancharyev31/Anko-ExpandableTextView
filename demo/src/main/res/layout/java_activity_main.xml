@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <tm.charlie.expandabletextview.ExpandableTextView
+                android:id="@+id/expandable_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="@string/lipsum_long"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                app:animationDuration="300"/>
+
+        </android.support.v7.widget.CardView>
+
+        <ToggleButton
+            android:id="@+id/toggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOff="@string/toggle_off"
+            android:textOn="@string/toggle_on"/>
+
+    </LinearLayout>
+</ScrollView>
