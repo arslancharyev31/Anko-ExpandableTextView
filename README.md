@@ -1,6 +1,6 @@
 # Android-ExpandableTextView
 
-[ ![Download](https://api.bintray.com/packages/arslancharyev31/android/Anko-ExpandableTextView/images/download.svg?version=1.0.0) ](https://bintray.com/arslancharyev31/android/Anko-ExpandableTextView/1.0.0/link)
+[ ![Download](https://api.bintray.com/packages/arslancharyev31/android/Anko-ExpandableTextView/images/download.svg?version=1.0.1) ](https://bintray.com/arslancharyev31/android/Anko-ExpandableTextView/1.0.1/link)
 
 An expandable TextView for Android (Api 16+) which is entirely written in
 [Kotlin](https://kotlinlang.org/) and takes advantage of [Anko](https://github.com/Kotlin/anko).
@@ -20,14 +20,14 @@ expanded/collapsed on configuration change.
 ## Demo Project
 
 Take a look at the [demo project](https://github.com/arslancharyev31/Anko-ExpandableTextView/tree/master/demo) 
-with examples of using this library in Kotlin with [Anko's DSL](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
+with examples of using this library in Kotlin with [Anko DSL](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
 as well as in Java with traditional xml.
 
 ![Demo](https://github.com/arslancharyev31/Anko-ExpandableTextView/blob/master/demo.gif)
 
 ## Getting Started
 
-Add this maven repository in your project level `gradle.build`. Support for mavenCentral/jCenter is coming... Example:
+Add this maven repository in your project level `gradle.build`. Support for mavenCentral/jCenter is coming soon...
 
 ```groovy
 allprojects {
@@ -38,11 +38,11 @@ allprojects {
 }
 ```
 
-And add this to your module level `gradle.build`. Example:
+And add this dependency to your module level `gradle.build`:
 
 ```groovy
 dependencies {
-    compile 'tm.charlie:expandabletextview:1.0.0'//Use `implementation` if you are using gradle plugin 3.0+
+    compile 'tm.charlie:expandabletextview:1.0.1'//Use `implementation` if you are using gradle plugin 3.0+
 }
 ```
 
@@ -57,9 +57,9 @@ Then just use `ExpandableTextView` as you would use any other `TextView`.
 
 | Attribute name             | Format                                        | Description | Default |
 | -------------------------|--------------------------------------------|-------------|---------|
-| *app:animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds | 350 |
 | *android:maxLines* | integer >= 0 | **REQUIRED**: Number of lines in collapsed state | [Integer.MAX_VALUE](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
 | *android:ellipsize* | either `marquee`, `start`, `middle`, `end` or `none` | see [Android Docs](https://developer.android.com/reference/android/widget/TextView.html#attr_android:ellipsize) | `none` |
+| *app:animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds | 350 |
 
 #### Extensions
 
