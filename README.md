@@ -5,7 +5,7 @@
 An expandable TextView for Android (Api 16+) which is entirely written in
 [Kotlin](https://kotlinlang.org/) and takes advantage of [Anko](https://github.com/Kotlin/anko).
 The library also handles configuration changes, so that the view remains
-expanded/collapsed on configuration change
+expanded/collapsed on configuration change.
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@ expanded/collapsed on configuration change
 
 Take a look at the [demo project](https://github.com/arslancharyev31/Anko-ExpandableTextView/tree/master/demo) 
 with examples of using this library in Kotlin with [Anko's DSL](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
-as well as in Java with traditional xml
+as well as in Java with traditional xml.
 
 ![Demo](https://github.com/arslancharyev31/Anko-ExpandableTextView/blob/master/demo.gif)
 
@@ -42,14 +42,14 @@ And add this to your module level `gradle.build`. Example:
 
 ```groovy
 dependencies {
-    compile 'at.blogc:expandabletextview:1.0.3'//Use `implementation` if you are using gradle plugin 3.0+
+    compile 'tm.charlie:expandabletextview:1.0.0'//Use `implementation` if you are using gradle plugin 3.0+
 }
 ```
 
 ## Usage
 
 1. Define the `android:maxLines` attribute to set the number of lines for `ExpandableTextView`'s collapsed state.
-2. Provide unique `id` to retain expanded/collapsed state
+2. Provide unique `id` to retain expanded/collapsed state.
 
 Then just use `ExpandableTextView` as you would use any other `TextView`.
 
@@ -73,8 +73,8 @@ expandableTextView(text = "Lorem ipsum...") {
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/arslancharyev31/Anko-ExpandableTextView/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/arslancharyev31/Anko-ExpandableTextView/blob/master/LICENSE) file for details.
 
 ## Acknowledgments
  
-This library is based on its Java counterpart: [Android-ExpandableTextView](https://github.com/Blogcat/Android-ExpandableTextView)
+This library is based on its Java counterpart: [Android-ExpandableTextView](https://github.com/Blogcat/Android-ExpandableTextView).
