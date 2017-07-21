@@ -33,6 +33,22 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
     compile "org.jetbrains.anko:anko:$ankoVersion"
 }
+
+// Apply dokka (Kotlin docs)
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.15"
+    }
+}
+apply plugin: 'org.jetbrains.dokka-android'
+
+// Disable JavaDoc generation, since this is handled by dokka
+// Moreover, JavaDoc breaks when parsing kotlin files
+tasks.withType(Javadoc).all { enabled = false }
+
 ext {
     bintrayRepo = 'android'
     bintrayName = 'Anko-ExpandableTextView'

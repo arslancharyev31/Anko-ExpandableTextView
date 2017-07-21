@@ -23,7 +23,7 @@ class KotlinActivity: AppCompatActivity() {
 					lparams { margin = dip(16) }
 					expandableText = expandableTextView(text = ctx.getString(R.string.lipsum_long)) {
 						lparams { margin = dip(8) }
-						id = 12453// provide id for saving expanded state
+						id = R.id.expandable_textview// provide consistent id for saving expanded state
 						maxLines = 3
 						ellipsize = TruncateAt.END
 						textSize = 17f
@@ -38,7 +38,7 @@ class KotlinActivity: AppCompatActivity() {
 					}
 				}
 				toggleExpand = toggleButton {
-					id = 789164
+					id = R.id.toggle// provide consistent id for saving expanded state
 					textOn = getString(R.string.toggle_on)
 					textOff = getString(R.string.toggle_off)
 					isChecked = false // apply off text
