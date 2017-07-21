@@ -22,6 +22,4 @@ fun View.makeClickable(borderless: Boolean = false) {
 	
 	context.theme.resolveAttribute(attr, outValue, true)
 	backgroundResource = outValue.resourceId//android.R.attr.selectableItemBackground
-	isClickable = true
-	isSoundEffectsEnabled = true
 }

@@ -13,7 +13,7 @@ import android.widget.TextView
 import org.jetbrains.anko.wrapContent
 import kotlin.properties.Delegates
 
-class ExpandableTextView: TextView {
+open class ExpandableTextView: TextView {
 	constructor(context: Context): super(context) {
 		initAttrs()
 	}
@@ -35,10 +35,10 @@ class ExpandableTextView: TextView {
 	// private properties
 	private var collapsedHeight: Int = 0
 	private var expandedHeight: Int = 0
-	private var originalMaxLines = maxLines // keep the original value of maxLines
+	private var defaultMaxLines = maxLines // keep the original value of maxLines
 	override fun setMaxLines(maxLines: Int) {
 		super.setMaxLines(maxLines)
-		originalMaxLines = maxLines
+		defaultMaxLines = maxLines
 	}
 	
 	// public properties with private setters
@@ -53,12 +53,14 @@ class ExpandableTextView: TextView {
 	var onCollapse: (ExpandableTextView.() -> Unit) = {}
 	var expandInterpolator = AccelerateDecelerateInterpolator()
 	var collapseInterpolator = AccelerateDecelerateInterpolator()
+	val isExpandable get() = isExpanded || isEllipsized || (defaultMaxLines == 0 && text.isNotEmpty())
 	
 	fun initAttrs(attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0) {
 		context.obtainStyledAttributes(attrs, R.styleable.ExpandableTextView, defStyleAttr, defStyleRes).apply {
-			animationDuration = getInteger(R.styleable.ExpandableTextView_animationDuration, 400).toLong()
+			animationDuration = getInteger(
+					R.styleable.ExpandableTextView_animationDuration,
+					context.resources.getInteger(R.integer.etv_default_animation_duration)).toLong()
 		}.recycle()
-		
 	}
 	
 	/**
@@ -72,7 +74,7 @@ class ExpandableTextView: TextView {
 	 * @return true if expanded, false otherwise.
 	 */
 	fun expand(): Boolean {
-		if (!isExpanded && !isAnimating && originalMaxLines >= 0) {
+		if (!isExpanded && !isAnimating && defaultMaxLines >= 0) {
 			
 			// notify listener
 			onExpand()
@@ -124,7 +126,7 @@ class ExpandableTextView: TextView {
 	 * @return true if collapsed, false otherwise.
 	 */
 	fun collapse(): Boolean {
-		if (isExpanded && !isAnimating && originalMaxLines >= 0) {
+		if (isExpanded && !isAnimating && defaultMaxLines >= 0) {
 			// notify listener
 			onCollapse()
 			
@@ -142,7 +144,7 @@ class ExpandableTextView: TextView {
 				addListener(object: AnimatorListenerAdapter() {
 					override fun onAnimationEnd(animation: Animator) {
 						// set maxLines to original value
-						super@ExpandableTextView.setMaxLines(originalMaxLines)
+						super@ExpandableTextView.setMaxLines(defaultMaxLines)
 						
 						// if fully collapsed, set height to WRAP_CONTENT, because when rotating the device
 						// the height calculated with this ValueAnimator isn't correct anymore
@@ -172,10 +174,10 @@ class ExpandableTextView: TextView {
 		
 		// Restore collapsed/expanded state
 		
-		val tempAnimDur = animationDuration
+		val temp = animationDuration
 		animationDuration = 0
 		if (ss.isExpanded) expand() else collapse()
-		animationDuration = tempAnimDur
+		animationDuration = temp
 	}
 	
 	class SavedState: BaseSavedState {

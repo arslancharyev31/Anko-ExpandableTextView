@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Anko-ExpandableTextView.iml" filepath="$PROJECT_DIR$/Anko-ExpandableTextView.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/expandabletextview/expandabletextview.iml" filepath="$PROJECT_DIR$/expandabletextview/expandabletextview.iml" />
     </modules>
   </component>
 </project>

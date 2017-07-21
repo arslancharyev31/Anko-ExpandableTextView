@@ -25,7 +25,7 @@ class KotlinActivity: AppCompatActivity() {
 						lparams { margin = dip(8) }
 						id = R.id.expandable_textview// provide consistent id for saving expanded state
 						maxLines = 3
-						ellipsize = TruncateAt.END
+						ellipsize = TruncateAt.START
 						textSize = 17f
 						textColor = Color.BLACK
 						animationDuration = 300
