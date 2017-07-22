@@ -1,6 +1,7 @@
 # Anko-ExpandableTextView
 
 [ ![Download](https://api.bintray.com/packages/arslancharyev31/android/Anko-ExpandableTextView/images/download.svg) ](https://bintray.com/arslancharyev31/android/Anko-ExpandableTextView/_latestVersion)
+[ ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 An expandable TextView for Android (Api 16+) which is entirely written in
 [Kotlin](https://kotlinlang.org/) and takes advantage of [Anko](https://github.com/Kotlin/anko).
@@ -43,7 +44,7 @@ And add this dependency to your module level `gradle.build`:
 ```groovy
 dependencies {
     // Use `implementation` instead of `compile` if you are using Android Studio 3.0+
-    compile 'tm.charlie.androidlib:expandabletextview:1.0.1'
+    compile 'tm.charlie.androidlib:expandabletextview:1.0.2'
 }
 ```
 
@@ -59,7 +60,7 @@ Then just use `ExpandableTextView` as you would use any other `TextView`.
 | Attribute name             | Format                                        | Description | Default |
 | -------------------------|--------------------------------------------|-------------|---------|
 | *android:maxLines* | integer >= 0 | **REQUIRED**: Number of lines in collapsed state | [Integer.MAX_VALUE](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
-| *android:ellipsize* | either `marquee`, `start`, `middle`, `end` or `none` | see [Android Docs](https://developer.android.com/reference/android/widget/TextView.html#attr_android:ellipsize) | `none` |
+| *android:ellipsize* | either `marquee`, `start`, `middle`, `end` or `none` | See [Android Docs](https://developer.android.com/reference/android/widget/TextView.html#attr_android:ellipsize) | `none` |
 | *app:animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds | 350 |
 
 #### Extensions
