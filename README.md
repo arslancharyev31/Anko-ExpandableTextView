@@ -1,6 +1,6 @@
-# Android-ExpandableTextView
+# Anko-ExpandableTextView
 
-[ ![Download](https://api.bintray.com/packages/arslancharyev31/android/Anko-ExpandableTextView/images/download.svg?version=1.0.1) ](https://bintray.com/arslancharyev31/android/Anko-ExpandableTextView/1.0.1/link)
+[ ![Download](https://api.bintray.com/packages/arslancharyev31/android/Anko-ExpandableTextView/images/download.svg) ](https://bintray.com/arslancharyev31/android/Anko-ExpandableTextView/_latestVersion)
 
 An expandable TextView for Android (Api 16+) which is entirely written in
 [Kotlin](https://kotlinlang.org/) and takes advantage of [Anko](https://github.com/Kotlin/anko).
@@ -42,7 +42,8 @@ And add this dependency to your module level `gradle.build`:
 
 ```groovy
 dependencies {
-    compile 'tm.charlie:expandabletextview:1.0.1'//Use `implementation` if you are using gradle plugin 3.0+
+    // Use `implementation` instead of `compile` if you are using Android Studio 3.0+
+    compile 'tm.charlie.androidlib:expandabletextview:1.0.1'
 }
 ```
 
