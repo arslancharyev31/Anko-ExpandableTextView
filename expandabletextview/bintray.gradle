@@ -1,6 +1,6 @@
 apply plugin: 'com.jfrog.bintray'
 
-version = libraryVersion
+version = rootProject.ext.versionName
 
 if (project.hasProperty("android")) { // Android libraries
     task sourcesJar(type: Jar) {
@@ -28,16 +28,16 @@ bintray {
 
     configurations = ['archives']
     pkg {
-        repo = bintrayRepo
-        name = bintrayName
-        desc = libraryDescription
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = allLicenses
+        repo = 'android'
+        name = 'Anko-ExpandableTextView'
+        desc = 'Expandable TextView for Android. Written in Kotlin.'
+        websiteUrl = 'https://github.com/arslancharyev31/Anko-ExpandableTextView'
+        vcsUrl = 'https://github.com/arslancharyev31/Anko-ExpandableTextView.git'
+        licenses = ['MIT']
         publish = true
         publicDownloadNumbers = true
         version {
-            desc = libraryDescription
+            desc = 'Expandable TextView for Android. Written in Kotlin.'
             gpg {
                 sign = false //Determines whether to GPG sign the files. The default is false
                 passphrase = properties.getProperty("bintray.gpg.password")

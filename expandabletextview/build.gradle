@@ -34,31 +34,7 @@ dependencies {
     compile "org.jetbrains.anko:anko:$ankoVersion"
 }
 
-// Configure for publishing
+// Configs for publishing
 
-ext {
-    bintrayRepo = 'android'
-    bintrayName = 'Anko-ExpandableTextView'
-
-    publishedGroupId = 'tm.charlie.androidlib'
-    libraryName = 'Anko-ExpandableTextView'
-    artifact = 'expandabletextview'
-
-    libraryDescription = 'Expandable TextView for Android. Written in Kotlin.'
-
-    siteUrl = 'https://github.com/arslancharyev31/Anko-ExpandableTextView'
-    gitUrl = 'https://github.com/arslancharyev31/Anko-ExpandableTextView.git'
-
-    libraryVersion = rootProject.ext.versionName
-
-    developerId = 'arslancharyev31'
-    developerName = 'Arslan'
-    developerEmail = 'arslancharyev31@gmail.com'
-
-    licenseName = 'The MIT License (MIT)'
-    licenseUrl = 'https://opensource.org/licenses/MIT'
-    allLicenses = ['MIT']
-}
-
-apply from: 'install.gradle'
-apply from: 'bintray.gradle'
+//apply from: 'install.gradle'
+//apply from: 'bintray.gradle'

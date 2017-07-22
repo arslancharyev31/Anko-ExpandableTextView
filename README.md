@@ -24,7 +24,7 @@ Take a look at the [demo project](https://github.com/arslancharyev31/Anko-Expand
 with examples of using this library in Kotlin with [Anko DSL](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
 as well as in Java with traditional xml.
 
-![Demo](https://github.com/arslancharyev31/Anko-ExpandableTextView/blob/master/demo.gif)
+![Demo](https://github.com/arslancharyev31/Anko-ExpandableTextView/blob/v1.0.2/demo.gif)
 
 ## Getting Started
 

@@ -1,6 +1,6 @@
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = publishedGroupId // Maven Group ID for the artifact
+group = 'tm.charlie.androidlib' // Maven Group ID for the artifact
 
 install {
     repositories.mavenInstaller {
@@ -8,32 +8,31 @@ install {
         pom {
             project {
                 packaging 'aar'
-                groupId publishedGroupId
-                artifactId artifact
+                groupId group
+                artifactId 'expandabletextview'
 
-                // Add your description here
-                name libraryName
-                description libraryDescription
-                url siteUrl
+                name 'Anko-ExpandableTextView'
+                description 'Expandable TextView for Android. Written in Kotlin.'
+                url 'https://github.com/arslancharyev31/Anko-ExpandableTextView'
 
                 // Set your license
                 licenses {
                     license {
-                        name licenseName
-                        url licenseUrl
+                        name 'The MIT License (MIT)'
+                        url 'https://opensource.org/licenses/MIT'
                     }
                 }
                 developers {
                     developer {
-                        id developerId
-                        name developerName
-                        email developerEmail
+                        id 'arslancharyev31'
+                        name 'Arslan'
+                        email 'arslancharyev31@gmail.com'
                     }
                 }
                 scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
+                    connection 'https://github.com/arslancharyev31/Anko-ExpandableTextView.git'
+                    developerConnection 'https://github.com/arslancharyev31/Anko-ExpandableTextView.git'
+                    url 'https://github.com/arslancharyev31/Anko-ExpandableTextView'
 
                 }
             }
