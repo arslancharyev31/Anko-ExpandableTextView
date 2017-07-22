@@ -28,18 +28,7 @@ as well as in Java with traditional xml.
 
 ## Getting Started
 
-Add this maven repository in your project level `gradle.build`. Support for mavenCentral/jCenter is coming soon...
-
-```groovy
-allprojects {
-    repositories {
-        jcenter()
-        maven { url "https://dl.bintray.com/arslancharyev31/android" }
-    }
-}
-```
-
-And add this dependency to your module level `gradle.build`:
+The library is included in jCenter, so just add this dependency to your module level `gradle.build`:
 
 ```groovy
 dependencies {
