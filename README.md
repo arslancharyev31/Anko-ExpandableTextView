@@ -1,7 +1,7 @@
 # Anko-ExpandableTextView
 
-[ ![Download](https://api.bintray.com/packages/arslancharyev31/android/Anko-ExpandableTextView/images/download.svg) ](https://bintray.com/arslancharyev31/android/Anko-ExpandableTextView/_latestVersion)
-[ ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Download](https://api.bintray.com/packages/arslancharyev31/android/Anko-ExpandableTextView/images/download.svg) ](https://bintray.com/arslancharyev31/android/Anko-ExpandableTextView/_latestVersion)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 An expandable TextView for Android (Api 16+) which is entirely written in
 [Kotlin](https://kotlinlang.org/) and takes advantage of [Anko](https://github.com/Kotlin/anko).
@@ -20,7 +20,7 @@ expanded/collapsed on configuration change.
 
 ## Demo Project
 
-Take a look at the [demo project](https://github.com/arslancharyev31/Anko-ExpandableTextView/tree/master/demo) 
+Take a look at the [demo project](demo)
 with examples of using this library in Kotlin with [Anko DSL](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
 as well as in Java with traditional xml.
 
@@ -55,16 +55,17 @@ Then just use `ExpandableTextView` as you would use any other `TextView`.
 #### Extensions
 
 Additionally, library provides [extension functions](https://kotlinlang.org/docs/reference/extensions.html)
-for easy DSL layout building. Example(more in demo project):
+for easy DSL layout building. Like so:
 ```groovy
 expandableTextView(text = "Lorem ipsum...") {
     maxLines = 3
 }
 ```
+[More in demo project](demo/src/main/java/tm/charlie/expandabletextview/demo/KotlinActivity.kt#L24-#38).
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/arslancharyev31/Anko-ExpandableTextView/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
  
