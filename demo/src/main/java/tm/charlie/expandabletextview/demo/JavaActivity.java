@@ -17,7 +17,7 @@ public class JavaActivity extends AppCompatActivity{
 		setContentView(R.layout.java_activity_main);
 		
 		final ExpandableTextView expandableText = (ExpandableTextView) findViewById(R.id.expandable_textview);
-		final ToggleButton toggleButton = (ToggleButton) findViewById(R.id.toggle);
+		final ToggleButton toggleButton = (ToggleButton) findViewById(R.id.toggle_expand);
 		
 		makeClickable(expandableText, false);
 		expandableText.setOnClickListener(new View.OnClickListener(){

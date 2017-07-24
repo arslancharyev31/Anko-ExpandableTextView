@@ -38,7 +38,7 @@ class KotlinActivity: AppCompatActivity() {
 					}
 				}
 				toggleExpand = toggleButton {
-					id = R.id.toggle// provide consistent id for saving expanded state
+					id = R.id.toggle_expand// provide consistent id for saving expanded state
 					textOn = getString(R.string.toggle_on)
 					textOff = getString(R.string.toggle_off)
 					isChecked = false // apply off text

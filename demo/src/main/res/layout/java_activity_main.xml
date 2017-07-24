@@ -30,7 +30,7 @@
         </android.support.v7.widget.CardView>
 
         <ToggleButton
-            android:id="@+id/toggle"
+            android:id="@+id/toggle_expand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textOff="@string/toggle_off"

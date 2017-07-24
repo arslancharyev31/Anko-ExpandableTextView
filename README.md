@@ -61,7 +61,7 @@ expandableTextView(text = "Lorem ipsum...") {
     maxLines = 3
 }
 ```
-[More in demo project](demo/src/main/java/tm/charlie/expandabletextview/demo/KotlinActivity.kt#L24-#38).
+[More in demo project](demo/src/main/java/tm/charlie/expandabletextview/demo/KotlinActivity.kt#L24-#L38).
 
 ## License
 
