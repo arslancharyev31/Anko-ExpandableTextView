@@ -14,42 +14,49 @@ import kotlin.properties.Delegates
 class KotlinActivity: AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		scrollView {
-			verticalLayout {
-				var expandableText: ExpandableTextView by Delegates.notNull()
-				var toggleExpand: ToggleButton by Delegates.notNull()
-				
-				cardView {
-					lparams { margin = dip(16) }
-					expandableText = expandableTextView(text = ctx.getString(R.string.lipsum_long)) {
-						lparams { margin = dip(8) }
-						id = R.id.expandable_textview// provide consistent id for saving expanded state
-						maxLines = 3
-						ellipsize = TruncateAt.START
-						textSize = 17f
-						textColor = Color.BLACK
-						animationDuration = 300
-						
-						makeClickable()
-						onClick {
-							if (toggle())// try toggling
-								toggleExpand.toggle()
+		KotlinActivityUi().setContentView(this)
+	}
+	
+	// Separate layout from activity logic
+	private class KotlinActivityUi: AnkoComponent<KotlinActivity> {
+		override fun createView(ui: AnkoContext<KotlinActivity>) = with(ui) {
+			scrollView {
+				verticalLayout {
+					var expandableText: ExpandableTextView by Delegates.notNull()
+					var toggleExpand: ToggleButton by Delegates.notNull()
+					
+					cardView {
+						lparams { margin = dip(16) }
+						expandableText = expandableTextView(text = ctx.getString(R.string.lipsum_long)) {
+							lparams { margin = dip(8) }
+							id = R.id.expandable_textview// provide consistent id for saving expanded state
+							maxLines = 3
+							ellipsize = TruncateAt.START
+							textSize = 17f
+							textColor = Color.BLACK
+							animationDuration = 300
+							
+							makeClickable()
+							onClick {
+								if (toggle())// try toggling
+									toggleExpand.toggle()
+							}
 						}
 					}
-				}
-				toggleExpand = toggleButton {
-					id = R.id.toggle_expand// provide consistent id for saving expanded state
-					textOn = getString(R.string.toggle_on)
-					textOff = getString(R.string.toggle_off)
-					isChecked = false // apply off text
-					onClick {
-						// sync toggle button and expandableTextView states
-						if (!expandableText.isAnimating) expandableText.toggle()
-						else toggle()//revert toggle
+					toggleExpand = toggleButton {
+						id = R.id.toggle_expand// provide consistent id for saving expanded state
+						textOn = getString(R.string.toggle_on)
+						textOff = getString(R.string.toggle_off)
+						isChecked = false // apply off text
+						onClick {
+							// sync toggle button and expandableTextView states
+							if (!expandableText.isAnimating) expandableText.toggle()
+							else toggle()//revert toggle
+						}
 					}
-				}
-				button("Open Java Activity") {
-					onClick { startActivity<JavaActivity>() }
+					button(text = getString(R.string.open_java_activity)) {
+						onClick { startActivity<JavaActivity>() }
+					}
 				}
 			}
 		}

@@ -12,7 +12,10 @@ inline fun ViewManager.cardView(init: CardView.() -> Unit) = ankoView({ CardView
 
 fun View.getString(resId: Int): String = context.getString(resId)
 
-// Use borderless=true for round views
+/**
+ * Adds ripple effect on view.
+ * @param borderless Use true for round ripple
+ * */
 fun View.makeClickable(borderless: Boolean = false) {
 	val outValue = TypedValue()
 	val attr =

@@ -5,4 +5,5 @@
 
     <string name="toggle_on">Expanded. Click to collapse</string>
     <string name="toggle_off">Collapsed. Click to expand</string>
+    <string name="open_java_activity">Open Java Activity</string>
 </resources>

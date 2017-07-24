@@ -25,7 +25,6 @@ import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry
 import android.support.test.InstrumentationRegistry.getInstrumentation
 import kotlin.properties.Delegates
 
-
 @SmallTest
 @RunWith(AndroidJUnit4::class)
 class ConfigChangeInstrumentedTest {
@@ -34,7 +33,7 @@ class ConfigChangeInstrumentedTest {
 	
 	@Test fun quickOrientationTest() {
 		clickOnView(R.id.expandable_textview)
-		rotateLandscape(400)
+		rotateLandscape()
 		checkIfExpanded()
 	}
 	
@@ -46,7 +45,7 @@ class ConfigChangeInstrumentedTest {
 		rotateLandscape()
 		checkIfExpanded()
 		
-		clickOnView("Open Java Activity")
+		clickOnView(currentActivity.getString(R.string.open_java_activity))
 		
 		// In Java Activity
 		clickOnView(R.id.toggle_expand)
@@ -70,7 +69,7 @@ class ConfigChangeInstrumentedTest {
 	}
 	
 	// Helper functions
-	val actionDelay = 500L
+	val actionDelay = 0L
 	
 	fun checkIfExpanded() = assertTrue(textIsExpanded)
 	fun checkIfCollapsed() = assertFalse(textIsExpanded)
@@ -86,12 +85,12 @@ class ConfigChangeInstrumentedTest {
 		onView(withText(viewText)).perform(click())!!
 	}
 	
-	fun rotateLandscape(delay: Long = 200) {
+	fun rotateLandscape(delay: Long = 300) {
 		currentActivity.requestedOrientation = SCREEN_ORIENTATION_LANDSCAPE
 		SystemClock.sleep(delay)
 	}
 	
-	fun rotatePortrait(delay: Long = 200) {
+	fun rotatePortrait(delay: Long = 300) {
 		currentActivity.requestedOrientation = SCREEN_ORIENTATION_PORTRAIT
 		SystemClock.sleep(delay)
 	}
