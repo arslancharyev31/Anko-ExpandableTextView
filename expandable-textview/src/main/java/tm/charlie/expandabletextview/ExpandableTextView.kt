@@ -11,7 +11,6 @@ import android.view.View.MeasureSpec.makeMeasureSpec
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.TextView
 import org.jetbrains.anko.wrapContent
-import kotlin.properties.Delegates
 
 open class ExpandableTextView: TextView {
 	constructor(context: Context): super(context) {
@@ -46,7 +45,7 @@ open class ExpandableTextView: TextView {
 	var isExpanded = false; private set
 	
 	// public properties
-	var animationDuration: Long by Delegates.notNull()
+	var animationDuration = 350
 	/** Called when [ExpandableTextView] starts expanding*/
 	var onExpand: (ExpandableTextView.() -> Unit) = {}
 	/** Called when [ExpandableTextView] starts collapsing*/
@@ -58,8 +57,8 @@ open class ExpandableTextView: TextView {
 	fun initAttrs(attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0) {
 		context.obtainStyledAttributes(attrs, R.styleable.ExpandableTextView, defStyleAttr, defStyleRes).apply {
 			animationDuration = getInteger(
-					R.styleable.ExpandableTextView_animationDuration,
-					context.resources.getInteger(R.integer.etv_default_animation_duration)).toLong()
+					R.styleable.ExpandableTextView_etv_animationDuration,
+					animationDuration)
 		}.recycle()
 	}
 	
@@ -97,7 +96,7 @@ open class ExpandableTextView: TextView {
 			// animate from collapsed height to expanded height
 			ValueAnimator.ofInt(collapsedHeight, expandedHeight).apply {
 				interpolator = expandInterpolator
-				duration = animationDuration
+				duration = animationDuration.toLong()
 				
 				// animate height change
 				addUpdateListener { animation ->
@@ -136,7 +135,7 @@ open class ExpandableTextView: TextView {
 			// animate from expanded height to collapsed height
 			ValueAnimator.ofInt(expandedHeight, collapsedHeight).apply {
 				interpolator = collapseInterpolator
-				duration = animationDuration
+				duration = animationDuration.toLong()
 				
 				addUpdateListener { animation ->
 					layoutParams = layoutParams.apply { height = animation.animatedValue as Int }

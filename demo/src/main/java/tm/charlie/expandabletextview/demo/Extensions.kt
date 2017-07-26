@@ -5,10 +5,11 @@ import android.support.v7.widget.CardView
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewManager
+import org.jetbrains.anko.AnkoViewDslMarker
 import org.jetbrains.anko.backgroundResource
 import org.jetbrains.anko.custom.ankoView
 
-inline fun ViewManager.cardView(init: CardView.() -> Unit) = ankoView({ CardView(it) }, 0, init)
+inline fun ViewManager.cardView(init:  (@AnkoViewDslMarker CardView).() -> Unit) = ankoView({ CardView(it) }, 0, init)
 
 fun View.getString(resId: Int): String = context.getString(resId)
 
