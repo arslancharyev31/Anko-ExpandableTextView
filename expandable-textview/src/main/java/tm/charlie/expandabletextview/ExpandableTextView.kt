@@ -56,9 +56,7 @@ open class ExpandableTextView: TextView {
 	
 	fun initAttrs(attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0) {
 		context.obtainStyledAttributes(attrs, R.styleable.ExpandableTextView, defStyleAttr, defStyleRes).apply {
-			animationDuration = getInteger(
-					R.styleable.ExpandableTextView_etv_animationDuration,
-					animationDuration)
+			animationDuration = getInteger(R.styleable.ExpandableTextView_etv_animationDuration, animationDuration)
 		}.recycle()
 	}
 	
@@ -161,9 +159,10 @@ open class ExpandableTextView: TextView {
 		return false
 	}
 	
-	// Making sure view retains it's expanded/collapse state
+	// Making sure textview retains it's expanded/collapse state
+	// Source: http://trickyandroid.com/saving-android-view-state-correctly/
 	
-	override fun onSaveInstanceState() = SavedState(super.onSaveInstanceState()).apply {
+	override fun onSaveInstanceState(): Parcelable = SavedState(super.onSaveInstanceState()).apply {
 		isExpanded = this@ExpandableTextView.isExpanded
 	}
 	
@@ -179,7 +178,7 @@ open class ExpandableTextView: TextView {
 		animationDuration = temp
 	}
 	
-	class SavedState: BaseSavedState {
+	@PublishedApi internal class SavedState: BaseSavedState {
 		var isExpanded: Boolean = false
 		
 		constructor(superState: Parcelable): super(superState)
