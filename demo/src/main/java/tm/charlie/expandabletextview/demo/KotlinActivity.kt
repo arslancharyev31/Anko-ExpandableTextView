@@ -2,6 +2,7 @@ package tm.charlie.expandabletextview.demo
 
 import android.graphics.Color
 import android.os.Bundle
+import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils.TruncateAt
 import android.widget.ToggleButton
@@ -34,6 +35,7 @@ class KotlinActivity: AppCompatActivity() {
 							ellipsize = TruncateAt.START
 							textSize = 17f
 							textColor = Color.BLACK
+							typeface = ResourcesCompat.getFont(context, R.font.lato_black)
 							animationDuration = 300
 							
 							makeClickable()

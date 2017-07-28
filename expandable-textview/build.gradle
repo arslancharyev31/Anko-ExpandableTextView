@@ -22,8 +22,9 @@ android {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
-    compile "org.jetbrains.anko:anko:$ankoVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
+    implementation "org.jetbrains.anko:anko:$ankoVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
 }
 
 // Configs for publishing

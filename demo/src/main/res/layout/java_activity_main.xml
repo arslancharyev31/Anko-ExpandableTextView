@@ -21,6 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:ellipsize="end"
+                android:fontFamily="@font/lato_black"
                 android:maxLines="3"
                 android:text="@string/lipsum_long"
                 android:textColor="@android:color/black"

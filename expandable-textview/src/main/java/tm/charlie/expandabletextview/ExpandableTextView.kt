@@ -6,13 +6,13 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.os.Parcel
 import android.os.Parcelable
+import android.support.v7.widget.AppCompatTextView
 import android.util.AttributeSet
 import android.view.View.MeasureSpec.makeMeasureSpec
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.widget.TextView
 import org.jetbrains.anko.wrapContent
 
-open class ExpandableTextView: TextView {
+open class ExpandableTextView: AppCompatTextView {
 	constructor(context: Context): super(context) {
 		initAttrs()
 	}
@@ -24,11 +24,6 @@ open class ExpandableTextView: TextView {
 	constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
 			: super(context, attrs, defStyleAttr) {
 		initAttrs(attrs, defStyleAttr)
-	}
-	
-	constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int)
-			: super(context, attrs, defStyleAttr, defStyleRes) {
-		initAttrs(attrs, defStyleAttr, defStyleRes)
 	}
 	
 	// private properties
