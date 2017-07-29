@@ -1,2 +1,1 @@
-bintray.gradle
-install.gradle
+deploy.gradle

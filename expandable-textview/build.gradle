@@ -27,7 +27,6 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
 }
 
-// Configs for publishing
+// Config for publishing
 
-//apply from: 'install.gradle'
-//apply from: 'bintray.gradle'
+//apply from: 'deploy.gradle'

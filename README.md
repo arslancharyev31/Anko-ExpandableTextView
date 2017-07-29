@@ -3,10 +3,10 @@
 [![Download](https://api.bintray.com/packages/arslancharyev31/android/Anko-ExpandableTextView/images/download.svg) ](https://bintray.com/arslancharyev31/android/Anko-ExpandableTextView/_latestVersion)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-An expandable TextView for Android (Api 16+) which is entirely written in
+An Expandable TextView for Android (Api 16+) which is entirely written in
 [Kotlin](https://kotlinlang.org/) and takes advantage of [Anko](https://github.com/Kotlin/anko).
 The library also handles configuration changes, so that the view remains
-expanded/collapsed on configuration change.
+expanded/collapsed on configuration change. Extends from `AppCompatTextView`.
 
 ## Table of Contents
 
@@ -32,15 +32,14 @@ The library is included in jCenter, so just add this dependency to your module l
 
 ```groovy
 dependencies {
-    // Use `implementation` instead of `compile` if you are using Android Studio 3.0+
-    compile 'tm.charlie.androidlib:expandabletextview:1.0.2'
+    implementation 'tm.charlie.androidlib:expandable-textview:1.1.0'
 }
 ```
 
 ## Usage
 
 1. Define the `android:maxLines` attribute to set the number of lines for `ExpandableTextView`'s collapsed state.
-2. Provide unique `id` to retain expanded/collapsed state.
+2. Provide unique `id` so that library could restore its expanded/collapsed state after configuration change.
 
 Then just use `ExpandableTextView` as you would use any other `TextView`.
 
@@ -61,7 +60,7 @@ expandableTextView(text = "Lorem ipsum...") {
     maxLines = 3
 }
 ```
-[More in demo project](demo/src/main/java/tm/charlie/expandabletextview/demo/KotlinActivity.kt#L24-L38).
+[More in demo project](demo/src/main/java/tm/charlie/expandabletextview/demo/KotlinActivity.kt#L31-L46).
 
 ## License
 
