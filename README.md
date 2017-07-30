@@ -1,6 +1,7 @@
 # Anko-ExpandableTextView
 
 [![Download](https://api.bintray.com/packages/arslancharyev31/android/expandable-textview/images/download.svg) ](https://bintray.com/arslancharyev31/android/expandable-textview/_latestVersion)
+[![Preview the app](https://img.shields.io/badge/Preview-Appetize.io-orange.svg)](https://appetize.io/app/j4e8txb4a3ezqbc0r49vcvbwe8)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 An Expandable TextView for Android (Api 16+) which is entirely written in
