@@ -35,9 +35,15 @@ class KotlinActivity: AppCompatActivity() {
 							textSize = 17f
 							textColor = Color.BLACK
 							typeface = ResourcesCompat.getFont(context, R.font.lato_black)
-							animationDuration = 300
+							animationDuration = 200
 							
-							makeClickable{
+							onStartExpand = { println("onStartExpand") }
+							onEndExpand = { println("onEndExpand") }
+							onStartCollapse = { println("onStartCollapse") }
+							onEndCollapse = { println("onEndCollapse") }
+							
+							// Make ExpandableTextView expand/collapse on click
+							makeClickable {
 								if (toggle())// try toggling
 									toggleExpand.toggle()
 							}
@@ -49,7 +55,7 @@ class KotlinActivity: AppCompatActivity() {
 						textOff = getString(R.string.toggle_off)
 						isChecked = false // apply off text
 						onClick {
-							// sync toggle button and expandableTextView states
+							// Make ExpandableTextView expand/collapse on click
 							if (!expandableText.isAnimating) expandableText.toggle()
 							else toggle()//revert toggle
 						}

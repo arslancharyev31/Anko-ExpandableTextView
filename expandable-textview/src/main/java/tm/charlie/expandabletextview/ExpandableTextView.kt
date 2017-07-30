@@ -38,10 +38,11 @@ open class ExpandableTextView: AppCompatTextView {
 	
 	// public properties
 	var animationDuration = 350
-	/** Called when [ExpandableTextView] starts expanding*/
-	var onExpand: (ExpandableTextView.() -> Unit) = {}
-	/** Called when [ExpandableTextView] starts collapsing*/
-	var onCollapse: (ExpandableTextView.() -> Unit) = {}
+	var onStartExpand: (ExpandableTextView.() -> Unit) = {}
+	var onStartCollapse: (ExpandableTextView.() -> Unit) = {}
+	var onEndExpand: (ExpandableTextView.() -> Unit) = {}
+	var onEndCollapse: (ExpandableTextView.() -> Unit) = {}
+	
 	var expandInterpolator = AccelerateDecelerateInterpolator()
 	var collapseInterpolator = AccelerateDecelerateInterpolator()
 	val isExpandable get() = isExpanded || isEllipsized || (defaultMaxLines == 0 && text.isNotEmpty())
@@ -57,17 +58,19 @@ open class ExpandableTextView: AppCompatTextView {
 	 * Toggle the expanded state of this [ExpandableTextView].
 	 * @return true if toggled, false otherwise.
 	 */
-	fun toggle() = if (isExpanded) collapse() else expand()
+	@JvmOverloads fun toggle(withAnimation: Boolean = true): Boolean {
+		return if (isExpanded) collapse(withAnimation) else expand(withAnimation)
+	}
 	
 	/**
 	 * Expand this [ExpandableTextView].
 	 * @return true if expanded, false otherwise.
 	 */
-	fun expand(): Boolean {
+	@JvmOverloads fun expand(withAnimation: Boolean = true): Boolean {
 		if (!isExpanded && !isAnimating && defaultMaxLines >= 0) {
 			
 			// notify listener
-			onExpand()
+			onStartExpand()
 			
 			// get collapsed height
 			measure(makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY),
@@ -87,7 +90,7 @@ open class ExpandableTextView: AppCompatTextView {
 			// animate from collapsed height to expanded height
 			ValueAnimator.ofInt(collapsedHeight, expandedHeight).apply {
 				interpolator = expandInterpolator
-				duration = animationDuration.toLong()
+				duration = if (withAnimation) animationDuration.toLong() else 0
 				
 				// animate height change
 				addUpdateListener { animation ->
@@ -102,6 +105,7 @@ open class ExpandableTextView: AppCompatTextView {
 						// keep track of current status
 						isExpanded = true
 						isAnimating = false
+						onEndExpand()
 					}
 				})
 			}.start() // start the animation
@@ -115,10 +119,10 @@ open class ExpandableTextView: AppCompatTextView {
 	 * Collapse this [ExpandableTextView].
 	 * @return true if collapsed, false otherwise.
 	 */
-	fun collapse(): Boolean {
+	@JvmOverloads fun collapse(withAnimation: Boolean = true): Boolean {
 		if (isExpanded && !isAnimating && defaultMaxLines >= 0) {
 			// notify listener
-			onCollapse()
+			onStartCollapse()
 			
 			// get expanded height
 			expandedHeight = measuredHeight
@@ -126,7 +130,7 @@ open class ExpandableTextView: AppCompatTextView {
 			// animate from expanded height to collapsed height
 			ValueAnimator.ofInt(expandedHeight, collapsedHeight).apply {
 				interpolator = collapseInterpolator
-				duration = animationDuration.toLong()
+				duration = if (withAnimation) animationDuration.toLong() else 0
 				
 				addUpdateListener { animation ->
 					layoutParams = layoutParams.apply { height = animation.animatedValue as Int }
@@ -143,6 +147,7 @@ open class ExpandableTextView: AppCompatTextView {
 						// keep track of current status
 						isExpanded = false
 						isAnimating = false
+						onEndCollapse()
 					}
 				})
 			}.start() // start the animation
@@ -177,10 +182,8 @@ open class ExpandableTextView: AppCompatTextView {
 		// Calling isExpandable when view is not yet shown will yield NPE
 		// Therefore we should delay its call
 		post {
-			val temp = animationDuration
-			animationDuration = 0
-			if (ss.isExpanded && this@ExpandableTextView.isExpandable) expand()
-			animationDuration = temp
+			if (ss.isExpanded && this@ExpandableTextView.isExpandable)
+				expand(withAnimation = false)
 		}
 	}
 	
@@ -198,6 +201,7 @@ open class ExpandableTextView: AppCompatTextView {
 		}
 		
 		companion object {
+			@Suppress("unused")
 			val CREATOR: Parcelable.Creator<SavedState> = object: Parcelable.Creator<SavedState> {
 				override fun createFromParcel(source: Parcel) = SavedState(source)
 				override fun newArray(size: Int): Array<SavedState?> = arrayOfNulls(size)
