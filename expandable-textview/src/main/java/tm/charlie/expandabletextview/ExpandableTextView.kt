@@ -73,7 +73,7 @@ open class ExpandableTextView: AppCompatTextView {
 			
 			// get collapsed height
 			measure(makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY),
-			        makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))
+					makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))
 			
 			collapsedHeight = measuredHeight
 			
@@ -82,7 +82,7 @@ open class ExpandableTextView: AppCompatTextView {
 			
 			// get expanded height
 			measure(makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY),
-			        makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))
+					makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))
 			
 			expandedHeight = measuredHeight
 			
@@ -165,12 +165,14 @@ open class ExpandableTextView: AppCompatTextView {
 		val ss = state as SavedState
 		super.onRestoreInstanceState(state.superState)
 		
-		// Restore collapsed/expanded state
-		
-		val temp = animationDuration
-		animationDuration = 0
-		if (ss.isExpanded) expand() else collapse()
-		animationDuration = temp
+		// Calling isExpandable when view is not yet shown will yield NPE
+		// Therefore we should delay its call
+		post {
+			val temp = animationDuration
+			animationDuration = 0
+			if (ss.isExpanded && this@ExpandableTextView.isExpandable) expand()
+			animationDuration = temp
+		}
 	}
 	
 	@PublishedApi internal class SavedState: BaseSavedState {

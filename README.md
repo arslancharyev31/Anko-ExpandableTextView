@@ -32,7 +32,7 @@ The library is included in jCenter, so just add this dependency to your module l
 
 ```groovy
 dependencies {
-    implementation 'tm.charlie.androidlib:expandable-textview:1.1.0'
+    implementation 'tm.charlie.androidlib:expandable-textview:1.1.1'
 }
 ```
 

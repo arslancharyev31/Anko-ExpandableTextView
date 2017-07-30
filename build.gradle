@@ -2,8 +2,8 @@
 
 ext {
     // Demo and lib versions
-    versionCode = 4
-    versionName = "1.1.0"
+    versionCode = 5
+    versionName = "1.1.1"
 
     // Sdk and tools
     minSdkVersion = 16
