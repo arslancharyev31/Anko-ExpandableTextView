@@ -1,6 +1,6 @@
 # Anko-ExpandableTextView
 
-[ ![Download](https://api.bintray.com/packages/arslancharyev31/android/expandable-textview/images/download.svg) ](https://bintray.com/arslancharyev31/android/expandable-textview/_latestVersion)
+[![Download](https://api.bintray.com/packages/arslancharyev31/android/expandable-textview/images/download.svg) ](https://bintray.com/arslancharyev31/android/expandable-textview/_latestVersion)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 An Expandable TextView for Android (Api 16+) which is entirely written in
@@ -50,6 +50,9 @@ Then just use `ExpandableTextView` as you would use any other `TextView`.
 | *android:maxLines* | integer >= 0 | **REQUIRED**: Number of lines in collapsed state | [Integer.MAX_VALUE](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
 | *android:ellipsize* | either `marquee`, `start`, `middle`, `end` or `none` | See [Android Docs](https://developer.android.com/reference/android/widget/TextView.html#attr_android:ellipsize) | `none` |
 | *app:animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds | 350 |
+
+**Notice**: In order to ensure correct behaviour, library will enforce `android:ellipsize` attribute to TruncateAt.END,
+therefore setting this attribute either via xml or programmatically will have no effect
 
 #### Extensions
 

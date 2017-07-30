@@ -7,6 +7,7 @@ import android.content.Context
 import android.os.Parcel
 import android.os.Parcelable
 import android.support.v7.widget.AppCompatTextView
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View.MeasureSpec.makeMeasureSpec
 import android.view.animation.AccelerateDecelerateInterpolator
@@ -27,13 +28,9 @@ open class ExpandableTextView: AppCompatTextView {
 	}
 	
 	// private properties
-	private var collapsedHeight: Int = 0
-	private var expandedHeight: Int = 0
-	private var defaultMaxLines = maxLines // keep the original value of maxLines
-	override fun setMaxLines(maxLines: Int) {
-		super.setMaxLines(maxLines)
-		defaultMaxLines = maxLines
-	}
+	protected var collapsedHeight: Int = 0
+	protected var expandedHeight: Int = 0
+	protected var defaultMaxLines = maxLines // keep the original value of maxLines
 	
 	// public properties with private setters
 	var isAnimating = false; private set
@@ -49,10 +46,11 @@ open class ExpandableTextView: AppCompatTextView {
 	var collapseInterpolator = AccelerateDecelerateInterpolator()
 	val isExpandable get() = isExpanded || isEllipsized || (defaultMaxLines == 0 && text.isNotEmpty())
 	
-	fun initAttrs(attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0) {
+	protected fun initAttrs(attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0) {
 		context.obtainStyledAttributes(attrs, R.styleable.ExpandableTextView, defStyleAttr, defStyleRes).apply {
 			animationDuration = getInteger(R.styleable.ExpandableTextView_etv_animationDuration, animationDuration)
 		}.recycle()
+		super.setEllipsize(TextUtils.TruncateAt.END)
 	}
 	
 	/**
@@ -154,8 +152,19 @@ open class ExpandableTextView: AppCompatTextView {
 		return false
 	}
 	
+	// Overriding super methods
+	override fun setMaxLines(maxLines: Int) {
+		super.setMaxLines(maxLines)
+		defaultMaxLines = maxLines
+	}
+	
+	@Deprecated(message = "Ellipsize will be enforced to TruncateAt.END to ensure correct behaviour", level = DeprecationLevel.WARNING)
+	override fun setEllipsize(where: TextUtils.TruncateAt?) {
+		super.setEllipsize(TextUtils.TruncateAt.END)
+	}
+	
 	// Making sure textview retains it's expanded/collapse state
-	// Source: http://trickyandroid.com/saving-android-view-state-correctly/
+	// More at: http://trickyandroid.com/saving-android-view-state-correctly/
 	
 	override fun onSaveInstanceState(): Parcelable = SavedState(super.onSaveInstanceState()).apply {
 		isExpanded = this@ExpandableTextView.isExpanded
@@ -175,12 +184,11 @@ open class ExpandableTextView: AppCompatTextView {
 		}
 	}
 	
-	@PublishedApi internal class SavedState: BaseSavedState {
+	protected class SavedState: BaseSavedState {
 		var isExpanded: Boolean = false
 		
 		constructor(superState: Parcelable): super(superState)
-		
-		private constructor(source: Parcel): super(source) {
+		constructor(source: Parcel): super(source) {
 			isExpanded = source.readBool()
 		}
 		

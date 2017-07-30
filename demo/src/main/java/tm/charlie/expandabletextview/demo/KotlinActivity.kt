@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
-import android.text.TextUtils.TruncateAt
 import android.widget.ToggleButton
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
@@ -15,6 +14,7 @@ import kotlin.properties.Delegates
 class KotlinActivity: AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+		title = this::class.java.simpleName
 		KotlinActivityUi().setContentView(this)
 	}
 	
@@ -32,14 +32,12 @@ class KotlinActivity: AppCompatActivity() {
 							lparams { margin = dip(8) }
 							id = R.id.expandable_textview// provide consistent id for saving expanded state
 							maxLines = 3
-							ellipsize = TruncateAt.START
 							textSize = 17f
 							textColor = Color.BLACK
 							typeface = ResourcesCompat.getFont(context, R.font.lato_black)
 							animationDuration = 300
 							
-							makeClickable()
-							onClick {
+							makeClickable{
 								if (toggle())// try toggling
 									toggleExpand.toggle()
 							}
