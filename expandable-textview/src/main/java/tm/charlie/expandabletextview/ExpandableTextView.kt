@@ -27,24 +27,26 @@ open class ExpandableTextView: AppCompatTextView {
 		initAttrs(attrs, defStyleAttr)
 	}
 	
-	// private properties
+	// Protected properties
 	protected var collapsedHeight: Int = 0
 	protected var expandedHeight: Int = 0
 	protected var defaultMaxLines = maxLines // keep the original value of maxLines
 	
-	// public properties with private setters
-	var isAnimating = false; private set
-	var isExpanded = false; private set
+	// Public properties with protected setters
+	var isAnimating = false; protected set
+	var isExpanded = false; protected set
 	
-	// public properties
+	// Public properties
 	var animationDuration = 350
 	var onStartExpand: (ExpandableTextView.() -> Unit) = {}
-	var onStartCollapse: (ExpandableTextView.() -> Unit) = {}
 	var onEndExpand: (ExpandableTextView.() -> Unit) = {}
+	var onStartCollapse: (ExpandableTextView.() -> Unit) = {}
 	var onEndCollapse: (ExpandableTextView.() -> Unit) = {}
 	
 	var expandInterpolator = AccelerateDecelerateInterpolator()
 	var collapseInterpolator = AccelerateDecelerateInterpolator()
+	/** @return **true** if this [ExpandableTextView] is either expanded, ellipsized or
+	 *  number of lines is 0 even though text is not empty*/
 	val isExpandable get() = isExpanded || isEllipsized || (defaultMaxLines == 0 && text.isNotEmpty())
 	
 	protected fun initAttrs(attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0) {
@@ -55,7 +57,9 @@ open class ExpandableTextView: AppCompatTextView {
 	}
 	
 	/**
-	 * Toggle the expanded state of this [ExpandableTextView].
+	 * Expand this [ExpandableTextView] if it is collapsed,
+	 * Collapse if it is expanded and do nothing if this [ExpandableTextView]
+	 * is animating
 	 * @return true if toggled, false otherwise.
 	 */
 	@JvmOverloads fun toggle(withAnimation: Boolean = true): Boolean {
@@ -63,7 +67,7 @@ open class ExpandableTextView: AppCompatTextView {
 	}
 	
 	/**
-	 * Expand this [ExpandableTextView].
+	 * Expand this [ExpandableTextView] if it is collapsed and not animating
 	 * @return true if expanded, false otherwise.
 	 */
 	@JvmOverloads fun expand(withAnimation: Boolean = true): Boolean {
@@ -116,7 +120,7 @@ open class ExpandableTextView: AppCompatTextView {
 	}
 	
 	/**
-	 * Collapse this [ExpandableTextView].
+	 * Collapse this [ExpandableTextView] if it is expanded and not animating
 	 * @return true if collapsed, false otherwise.
 	 */
 	@JvmOverloads fun collapse(withAnimation: Boolean = true): Boolean {

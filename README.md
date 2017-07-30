@@ -44,27 +44,45 @@ dependencies {
 
 Then just use `ExpandableTextView` as you would use any other `TextView`.
 
-#### Useful attributes
+### Public properties
+- `animationDuration` - Duration of expand/collapse animation in milliseconds.
+- `onStartExpand` - Listener, called when `ExpandableTextView` starts expanding.
+- `onEndExpand`Listener, called when `ExpandableTextView` ends expanding.
+- `onStartCollapse` - Listener, called when `ExpandableTextView` starts collapsing.
+- `onEndCollapse` - Listener, called when `ExpandableTextView` ends collapsing.
+- `expandInterpolator` - Interpolator, applied to expand animation.
+- `collapseInterpolator` - Interpolator, applied to collapse animation.
+- `isExpandable` - Returns **true** if `ExpandableTextView` is either expanded, ellipsized or number of lines is 0 even though text is not empty.
+#### Public properties with private setters
+- `isAnimating`
+- `isExpanded`
 
-| Attribute name             | Format                                        | Description | Default |
-| -------------------------|--------------------------------------------|-------------|---------|
-| *android:maxLines* | integer >= 0 | **REQUIRED**: Number of lines in collapsed state | [Integer.MAX_VALUE](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
-| *android:ellipsize* | either `marquee`, `start`, `middle`, `end` or `none` | See [Android Docs](https://developer.android.com/reference/android/widget/TextView.html#attr_android:ellipsize) | `none` |
-| *app:animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds | 350 |
+### Public functions
 
-**Notice**: In order to ensure correct behaviour, library will enforce `android:ellipsize` attribute to TruncateAt.END,
-therefore setting this attribute either via xml or programmatically will have no effect
+- `expand(withAnimation: Boolean)` - Expands the `ExpandableTextView` with animation if no argument was passed.
+- `collapse(withAnimation: Boolean)` - Collapses the `ExpandableTextView` with animation if no argument was passed.
+- `toggle(withAnimation: Boolean)` - Expands the `ExpandableTextView` if it is collapsed or collapses it if it is expanded with animation if no argument was passed.
 
-#### Extensions
+### Extensions
 
 Additionally, library provides [extension functions](https://kotlinlang.org/docs/reference/extensions.html)
 for easy DSL layout building. Like so:
-```groovy
+```kotlin
 expandableTextView(text = "Lorem ipsum...") {
     maxLines = 3
 }
 ```
 [More in demo project](demo/src/main/java/tm/charlie/expandabletextview/demo/KotlinActivity.kt#L31-L46).
+
+### Useful attributes
+
+| Attribute name             | Format                                        | Description | Default |
+| -------------------------|--------------------------------------------|-------------|---------|
+| *android:maxLines* | integer >= 0 | **REQUIRED**: Number of lines in collapsed state | [Integer.MAX_VALUE](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
+| *app:animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds | 350 |
+
+**Notice**: In order to ensure correct behaviour, library will enforce `android:ellipsize` attribute to TruncateAt.END,
+therefore setting this attribute either via xml or programmatically will have no effect
 
 ## License
 
