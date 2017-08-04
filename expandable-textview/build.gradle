@@ -23,7 +23,7 @@ android {
 }
 
 dokka {
-    outputFormat = 'html'
+    outputFormat = 'jekyll'
     outputDirectory = "$rootDir/docs"
 }
 
