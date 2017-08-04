@@ -1,0 +1,177 @@
+- title: expandable-textview
+  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\index
+  content:
+    - title: alltypes
+      url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\alltypes\index
+      content:
+        - title: ExpandableTextView
+          url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\index
+          content:
+            - title: ExpandableTextView
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-init-
+            - title: ExpandableTextView
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-init-
+            - title: ExpandableTextView
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-init-
+            - title: SavedState
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\index
+              content:
+                - title: SavedState
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\-init-
+                - title: SavedState
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\-init-
+                - title: CREATOR
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\-c-r-e-a-t-o-r
+                - title: state
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\state
+                - title: writeToParcel
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\write-to-parcel
+            - title: State
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\index
+              content:
+                - title: Collapsed
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\-collapsed
+                - title: Collapsing
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\-collapsing
+                - title: Expanded
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\-expanded
+                - title: Expanding
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\-expanding
+                - title: Static
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\-static
+            - title: animationDuration
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\animation-duration
+            - title: collapse
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\collapse
+            - title: collapseInterpolator
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\collapse-interpolator
+            - title: collapsedHeight
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\collapsed-height
+            - title: collapsedLines
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\collapsed-lines
+            - title: expand
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\expand
+            - title: expandInterpolator
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\expand-interpolator
+            - title: expandedHeight
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\expanded-height
+            - title: expandedLines
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\expanded-lines
+            - title: initAttrs
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\init-attrs
+            - title: layoutHeight
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\layout-height
+            - title: onRestoreInstanceState
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-restore-instance-state
+            - title: onSaveInstanceState
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-save-instance-state
+            - title: onSizeChanged
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-size-changed
+            - title: onStateChange
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-state-change
+            - title: onStateChangeListener
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-state-change-listener
+            - title: onTextChanged
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-text-changed
+            - title: setEllipsize
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\set-ellipsize
+            - title: setMaxLines
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\set-max-lines
+            - title: state
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\state
+            - title: toggle
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\toggle
+            - title: updateState
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\update-state
+        - title: android.view.ViewManager
+          url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\android.view.-view-manager\index
+          content:
+            - title: expandableTextView
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\android.view.-view-manager\expandable-text-view
+    - title: tm.charlie.expandabletextview
+      url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\index
+      content:
+        - title: ExpandableTextView
+          url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\index
+          content:
+            - title: ExpandableTextView
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-init-
+            - title: ExpandableTextView
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-init-
+            - title: ExpandableTextView
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-init-
+            - title: SavedState
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\index
+              content:
+                - title: SavedState
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\-init-
+                - title: SavedState
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\-init-
+                - title: CREATOR
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\-c-r-e-a-t-o-r
+                - title: state
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\state
+                - title: writeToParcel
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-saved-state\write-to-parcel
+            - title: State
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\index
+              content:
+                - title: Collapsed
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\-collapsed
+                - title: Collapsing
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\-collapsing
+                - title: Expanded
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\-expanded
+                - title: Expanding
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\-expanding
+                - title: Static
+                  url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\-state\-static
+            - title: animationDuration
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\animation-duration
+            - title: collapse
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\collapse
+            - title: collapseInterpolator
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\collapse-interpolator
+            - title: collapsedHeight
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\collapsed-height
+            - title: collapsedLines
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\collapsed-lines
+            - title: expand
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\expand
+            - title: expandInterpolator
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\expand-interpolator
+            - title: expandedHeight
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\expanded-height
+            - title: expandedLines
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\expanded-lines
+            - title: initAttrs
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\init-attrs
+            - title: layoutHeight
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\layout-height
+            - title: onRestoreInstanceState
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-restore-instance-state
+            - title: onSaveInstanceState
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-save-instance-state
+            - title: onSizeChanged
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-size-changed
+            - title: onStateChange
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-state-change
+            - title: onStateChangeListener
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-state-change-listener
+            - title: onTextChanged
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\on-text-changed
+            - title: setEllipsize
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\set-ellipsize
+            - title: setMaxLines
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\set-max-lines
+            - title: state
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\state
+            - title: toggle
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\toggle
+            - title: updateState
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\-expandable-text-view\update-state
+        - title: android.view.ViewManager
+          url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\android.view.-view-manager\index
+          content:
+            - title: expandableTextView
+              url: C:\Users\Charlie\OneDrive\Dev\Projects\AndroidStudio\Anko-ExpandableTextView\docs\expandable-textview\tm.charlie.expandabletextview\android.view.-view-manager\expandable-text-view

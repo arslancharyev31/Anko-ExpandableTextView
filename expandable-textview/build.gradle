@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.dokka-android'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -21,6 +22,11 @@ android {
     }
 }
 
+dokka {
+    outputFormat = 'kotlin-website'
+    outputDirectory = "$rootDir/docs"
+}
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
     implementation "org.jetbrains.anko:anko:$ankoVersion"
@@ -29,4 +35,4 @@ dependencies {
 
 // Config for publishing
 
-//apply from: 'deploy.gradle'
+apply from: 'deploy.gradle'

@@ -2,5 +2,7 @@
 <resources>
     <declare-styleable name="ExpandableTextView">
         <attr name="etv_animationDuration" format="integer" />
+        <attr name="etv_collapsedLines" format="integer" />
+        <attr name="etv_expandedLines" format="integer" />
     </declare-styleable>
 </resources>

@@ -8,12 +8,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:orientation="vertical">
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp">
+            android:layout_margin="8dp">
 
             <tm.charlie.expandabletextview.ExpandableTextView
                 android:id="@+id/expandable_textview"
@@ -21,20 +22,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:fontFamily="@font/lato_black"
-                android:maxLines="3"
                 android:text="@string/lipsum_long"
                 android:textColor="@android:color/black"
                 android:textSize="17sp"
-                app:etv_animationDuration="300"/>
+                app:etv_collapsedLines="3"
+                app:etv_animationDuration="200"/>
 
         </android.support.v7.widget.CardView>
-
-        <ToggleButton
-            android:id="@+id/toggle_expand"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textOff="@string/toggle_off"
-            android:textOn="@string/toggle_on"/>
-
     </LinearLayout>
 </ScrollView>

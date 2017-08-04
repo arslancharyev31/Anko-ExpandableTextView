@@ -14,8 +14,11 @@ expanded/collapsed on configuration change. Extends from `AppCompatTextView`.
 - [Demo project](#demo-project)
 - [Getting started](#getting-started)
 - [Usage](#usage)
+  - [Public properties](#public-properties)
+  - [Public functions](#public-functions)
   - [Useful attributes](#useful-attributes)
   - [Extensions](#extensions)
+- [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
@@ -31,63 +34,60 @@ as well as in Java with traditional xml.
 
 The library is included in jCenter, so just add this dependency to your module level `gradle.build`:
 
-```groovy
+```kotlin
 dependencies {
-    implementation 'tm.charlie.androidlib:expandable-textview:1.1.1'
+    implementation 'tm.charlie.androidlib:expandable-textview:$LatestVersion'
 }
 ```
+Current latest version is: [![Download](https://api.bintray.com/packages/arslancharyev31/android/expandable-textview/images/download.svg) ](https://bintray.com/arslancharyev31/android/expandable-textview/_latestVersion)
 
 ## Usage
 
-1. Define the `android:maxLines` attribute to set the number of lines for `ExpandableTextView`'s collapsed state.
-2. Provide unique `id` so that library could restore its expanded/collapsed state after configuration change.
+1. Define the `etv_collapsedLines` xml attribute (`setCollapsedLines(int lines)` method in Java or `collapsedLines` property in Kotlin) to set the number of lines in collapsed state.
+2. Provide unique `id` so that library could restore its state after configuration change.
 
-Then just use `ExpandableTextView` as you would use any other `TextView`.
+Then use `ExpandableTextView` just as you would use any other `TextView`.
 
-### Public properties
-- `animationDuration` - Duration of expand/collapse animation in milliseconds.
-- `onStartExpand` - Listener, called when `ExpandableTextView` starts expanding.
-- `onEndExpand`Listener, called when `ExpandableTextView` ends expanding.
-- `onStartCollapse` - Listener, called when `ExpandableTextView` starts collapsing.
-- `onEndCollapse` - Listener, called when `ExpandableTextView` ends collapsing.
-- `expandInterpolator` - Interpolator, applied to expand animation.
-- `collapseInterpolator` - Interpolator, applied to collapse animation.
-- `isExpandable` - Returns **true** if `ExpandableTextView` is either expanded, ellipsized or number of lines is 0 even though text is not empty.
-#### Public properties with private setters
-- `isAnimating`
-- `isExpanded`
+#### Extensions
 
-### Public functions
-
-- `expand(withAnimation: Boolean)` - Expands the `ExpandableTextView` with animation if no argument was passed.
-- `collapse(withAnimation: Boolean)` - Collapses the `ExpandableTextView` with animation if no argument was passed.
-- `toggle(withAnimation: Boolean)` - Expands the `ExpandableTextView` if it is collapsed or collapses it if it is expanded with animation if no argument was passed.
-
-### Extensions
-
-Additionally, library provides [extension functions](https://kotlinlang.org/docs/reference/extensions.html)
-for easy DSL layout building. Like so:
+Additionally, library provides [extension function](https://kotlinlang.org/docs/reference/extensions.html)
+for simple DSL layout building. Like so:
 ```kotlin
 expandableTextView(text = "Lorem ipsum...") {
-    maxLines = 3
+    collapsedLines = 3
 }
 ```
-[More in demo project](demo/src/main/java/tm/charlie/expandabletextview/demo/KotlinActivity.kt#L31-L46).
+[More in demo project](demo/src/main/java/tm/charlie/expandabletextview/demo/KotlinActivity.kt).
 
-### Useful attributes
+## Documentation
+
+Take a look at the library documentation with description of public functions and properties:
+
+#### Useful xml attributes
+
+You can use `ExpandableTextView` in xml layouts in the same way as you would `TextView`.
+The library provides following attributes in addition to the ones defined in `TextView`.
 
 | Attribute name             | Format                                        | Description | Default |
 | -------------------------|--------------------------------------------|-------------|---------|
-| *android:maxLines* | integer >= 0 | **REQUIRED**: Number of lines in collapsed state | [Integer.MAX_VALUE](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
-| *app:animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds | 350 |
+| *app:etv_animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds | 300 |
+| *app:etv_collapsedLines* | integer >= 0 | Number of lines in collapsed state. Must not be greater than `etv_expandedLines`. |[`Integer.MAX_VALUE`](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
+| *app:etv_expandedLines* | integer >= 0 | Number of lines in expanded state. Must not be less than `etv_collapsedLines`. | [`Integer.MAX_VALUE`](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
 
-**Notice**: In order to ensure correct behaviour, library will enforce `android:ellipsize` attribute to TruncateAt.END,
-therefore setting this attribute either via xml or programmatically will have no effect
+#### Important notes
+- Library overrides `android:ellipsize` attribute to `TruncateAt.END` in order to ensure correct behaviour,
+therefore setting this attribute either via xml or programmatically will have no effect.
+- Library extensively uses `android:maxLines` internally, therefore this attribute shouldn't be used.
+Use `collapsedLines` or `expandedLines` instead.
+
+## Contributing
+
+If you wish to send a pull request, please make sure to checkout from `develop` branch and merge with `develop` branch as well.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
- 
-This library is based on its Java counterpart: [Android-ExpandableTextView](https://github.com/Blogcat/Android-ExpandableTextView).
+
+This library was based on its Java counterpart: [Android-ExpandableTextView](https://github.com/Blogcat/Android-ExpandableTextView).

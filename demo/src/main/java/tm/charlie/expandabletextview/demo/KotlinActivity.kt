@@ -4,7 +4,9 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.app.AppCompatActivity
-import android.widget.ToggleButton
+import android.view.Gravity
+import android.view.View
+import android.widget.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import tm.charlie.expandabletextview.ExpandableTextView
@@ -23,45 +25,78 @@ class KotlinActivity: AppCompatActivity() {
 		override fun createView(ui: AnkoContext<KotlinActivity>) = with(ui) {
 			scrollView {
 				verticalLayout {
-					var expandableText: ExpandableTextView by Delegates.notNull()
-					var toggleExpand: ToggleButton by Delegates.notNull()
+					lparams { margin = dip(16) }
+					var expandableTextView: ExpandableTextView by Delegates.notNull()
+					var stateTextView: TextView by Delegates.notNull()
+					val lipsum = ctx.getString(R.string.lipsum_long)
 					
 					cardView {
-						lparams { margin = dip(16) }
-						expandableText = expandableTextView(text = ctx.getString(R.string.lipsum_long)) {
+						useCompatPadding = true
+						expandableTextView = expandableTextView(text = lipsum) {
 							lparams { margin = dip(8) }
 							id = R.id.expandable_textview// provide consistent id for saving expanded state
-							maxLines = 3
 							textSize = 17f
 							textColor = Color.BLACK
 							typeface = ResourcesCompat.getFont(context, R.font.lato_black)
+							collapsedLines = 3
 							animationDuration = 200
 							
-							onStartExpand = { println("onStartExpand") }
-							onEndExpand = { println("onEndExpand") }
-							onStartCollapse = { println("onStartCollapse") }
-							onEndCollapse = { println("onEndCollapse") }
+							onStateChange { oldState, newState ->
+								toast("$oldState -> $newState")
+								stateTextView.text = newState.toString()
+							}
 							
 							// Make ExpandableTextView expand/collapse on click
-							makeClickable {
-								if (toggle())// try toggling
-									toggleExpand.toggle()
+							makeClickable { toggle() }
+						}
+					}
+					button(text = getString(R.string.open_java_activity)) { onClick { startActivity<JavaActivity>() } }
+					
+					linearLayout {
+						val lines = arrayOf("1", "3", Integer.MAX_VALUE.toString())
+						textView("Collapsed lines:")
+						spinner {
+							id = R.id.spinner_collapsed_lines
+							adapter = ArrayAdapter<String>(ctx, R.layout.support_simple_spinner_dropdown_item, lines)
+							setSelection(1)
+							onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+								override fun onNothingSelected(parent: AdapterView<*>?) {}
+								override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
+									expandableTextView.collapsedLines = lines[pos].toInt()
+								}
+							}
+						}.lparams { weight = 1f }
+						textView("Expanded lines:")
+						spinner {
+							id = R.id.spinner_expanded_lines
+							adapter = ArrayAdapter<String>(ctx, R.layout.support_simple_spinner_dropdown_item, lines)
+							setSelection(2)
+							onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+								override fun onNothingSelected(parent: AdapterView<*>?) {}
+								override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
+									expandableTextView.expandedLines = lines[pos].toInt()
+								}
+							}
+						}.lparams { weight = 1f }
+					}
+					linearLayout {
+						textView("Demo text:")
+						spinner {
+							id = R.id.spinner_demo_text
+							val texts = arrayOf(lipsum.substring(0..30), lipsum.substring(0..100), lipsum)
+							adapter = ArrayAdapter<String>(ctx, R.layout.support_simple_spinner_dropdown_item, texts)
+							setSelection(2)
+							onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+								override fun onNothingSelected(parent: AdapterView<*>?) {}
+								override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
+									expandableTextView.text = texts[pos]
+								}
 							}
 						}
 					}
-					toggleExpand = toggleButton {
-						id = R.id.toggle_expand// provide consistent id for saving expanded state
-						textOn = getString(R.string.toggle_on)
-						textOff = getString(R.string.toggle_off)
-						isChecked = false // apply off text
-						onClick {
-							// Make ExpandableTextView expand/collapse on click
-							if (!expandableText.isAnimating) expandableText.toggle()
-							else toggle()//revert toggle
-						}
-					}
-					button(text = getString(R.string.open_java_activity)) {
-						onClick { startActivity<JavaActivity>() }
+					stateTextView = textView(text = expandableTextView.state.toString()) {
+						textSize = 20f
+						gravity = Gravity.CENTER_HORIZONTAL
 					}
 				}
 			}
