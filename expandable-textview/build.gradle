@@ -23,7 +23,7 @@ android {
 }
 
 dokka {
-    outputFormat = 'kotlin-website'
+    outputFormat = 'html'
     outputDirectory = "$rootDir/docs"
 }
 

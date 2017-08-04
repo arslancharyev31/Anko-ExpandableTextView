@@ -1,0 +1,91 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+ext{
+    siteUrl = 'https://github.com/arslancharyev31/Anko-ExpandableTextView'
+    gitUrl = 'https://github.com/arslancharyev31/Anko-ExpandableTextView.git'
+    ver = rootProject.ext.versionName
+    groupId = 'tm.charlie.androidlib'
+    licenses = ['MIT']
+    id = 'expandable-textview'
+    name = 'expandable-textview'
+    desc = 'Expandable TextView for Android. Written in Kotlin.'
+}
+
+version = project.ext.ver
+group = project.ext.groupId // Maven Group ID for the artifact
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom.project {
+            packaging 'aar'
+            groupId project.ext.groupId
+            artifactId project.ext.id
+            version project.ext.ver
+            name project.ext.name
+            url project.ext.siteUrl
+
+            // Set your license
+            licenses {
+                license {
+                    name 'The MIT License (MIT)'
+                    url 'https://opensource.org/licenses/MIT'
+                }
+            }
+            developers {
+                developer {
+                    id 'arslancharyev31'
+                    name 'Arslan Charyyev'
+                    email 'arslancharyev31@gmail.com'
+                }
+            }
+            scm {
+                connection project.ext.gitUrl
+                developerConnection project.ext.gitUrl
+                url project.ext.siteUrl
+            }
+        }
+    }
+}
+
+
+
+if (project.hasProperty("android")) { // Android libraries
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+} else { // Java libraries
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+// Bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.key")
+
+    configurations = ['archives']
+    pkg {
+        repo = 'android'
+        name = project.ext.id
+        desc = project.ext.desc
+        websiteUrl = project.ext.siteUrl
+        vcsUrl = project.ext.gitUrl
+        licenses = project.ext.licenses
+        publish = true
+        version {
+            name = project.ext.ver
+        }
+    }
+}

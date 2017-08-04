@@ -1,0 +1,238 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ExpandableTextView - expandable-textview</title>
+<link rel="stylesheet" href="..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">expandable-textview</a>&nbsp;/&nbsp;<a href="../index.html">tm.charlie.expandabletextview</a>&nbsp;/&nbsp;<a href=".">ExpandableTextView</a><br/>
+<br/>
+<h1>ExpandableTextView</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ExpandableTextView</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/support/v7/widget/AppCompatTextView.html"><span class="identifier">AppCompatTextView</span></a></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-saved-state/index.html">SavedState</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SavedState</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/View/BaseSavedState.html"><span class="identifier">BaseSavedState</span></a></code>
+<p>Protected class that is being used to save and restore ExpandableTextView's state on configuration change.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-state/index.html">State</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">State</span></code>
+<p>Enum representing current state of the ExpandableTextView.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">ExpandableTextView</span><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$<init>(android.content.Context)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">)</span></code><br/>
+<code><span class="identifier">ExpandableTextView</span><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$<init>(android.content.Context, android.util.AttributeSet)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$<init>(android.content.Context, android.util.AttributeSet)/attrs">attrs</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/util/AttributeSet.html"><span class="identifier">AttributeSet</span></a><span class="symbol">?</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">ExpandableTextView</span><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/attrs">attrs</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/util/AttributeSet.html"><span class="identifier">AttributeSet</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/defStyleAttr">defStyleAttr</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="animation-duration.html">animationDuration</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">animationDuration</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Duration of expand/collapse animation in milliseconds. 300 by default.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="collapse-interpolator.html">collapseInterpolator</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">collapseInterpolator</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/animation/TimeInterpolator.html"><span class="identifier">TimeInterpolator</span></a></code>
+<p>Interpolator applied to collapse animation. <a href="https://developer.android.com/reference/android/view/animation/AccelerateDecelerateInterpolator.html">AccelerateDecelerateInterpolator</a> by default</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="collapsed-height.html">collapsedHeight</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">collapsedHeight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="collapsed-lines.html">collapsedLines</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">collapsedLines</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Maximum number of lines in <a href="-state/-collapsed.html">collapsed</a> <a href="state.html">state</a>. <a href="https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE">Integer.MAX_VALUE</a> by default.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="expand-interpolator.html">expandInterpolator</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">expandInterpolator</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/animation/TimeInterpolator.html"><span class="identifier">TimeInterpolator</span></a></code>
+<p>Interpolator applied to expand animation. <a href="https://developer.android.com/reference/android/view/animation/AccelerateDecelerateInterpolator.html">AccelerateDecelerateInterpolator</a> by default.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="expanded-height.html">expandedHeight</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">expandedHeight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="expanded-lines.html">expandedLines</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">expandedLines</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Maximum number of lines in the <a href="-state/-expanded.html">expanded</a> <a href="state.html">state</a>. <a href="https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE">Integer.MAX_VALUE</a> by default.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="layout-height.html">layoutHeight</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">layoutHeight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-state-change-listener.html">onStateChangeListener</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">onStateChangeListener</span><span class="symbol">: </span><span class="identifier">ExpandableTextView</span><span class="symbol">.</span><span class="symbol">(</span><span class="identifier">oldState</span><span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">newState</span><span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Protected listener that is being called when this ExpandableTextView changes its <a href="state.html">state</a>.
+Use public <a href="on-state-change.html">onStateChange</a> to set the listener.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="state.html">state</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">state</span><span class="symbol">: </span><a href="-state/index.html"><span class="identifier">State</span></a></code>
+<p>Current <a href="-state/index.html">State</a> of this ExpandableTextView. Read-only property. <a href="-state/-static.html">Static</a> by default.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="collapse.html">collapse</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">collapse</span><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$collapse(kotlin.Boolean, kotlin.Boolean)/withAnimation">withAnimation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$collapse(kotlin.Boolean, kotlin.Boolean)/forceCollapse">forceCollapse</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Collapses this ExpandableTextView if its <a href="state.html">state</a> is <a href="-state/-expanded.html">Expanded</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="expand.html">expand</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expand</span><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$expand(kotlin.Boolean, kotlin.Boolean)/withAnimation">withAnimation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$expand(kotlin.Boolean, kotlin.Boolean)/forceExpand">forceExpand</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Expands this ExpandableTextView if its <a href="state.html">state</a> is <a href="-state/-collapsed.html">Collapsed</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="init-attrs.html">initAttrs</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">initAttrs</span><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$initAttrs(android.util.AttributeSet, kotlin.Int, kotlin.Int)/attrs">attrs</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/util/AttributeSet.html"><span class="identifier">AttributeSet</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$initAttrs(android.util.AttributeSet, kotlin.Int, kotlin.Int)/defStyleAttr">defStyleAttr</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$initAttrs(android.util.AttributeSet, kotlin.Int, kotlin.Int)/defStyleRes">defStyleRes</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-restore-instance-state.html">onRestoreInstanceState</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onRestoreInstanceState</span><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$onRestoreInstanceState(android.os.Parcelable)/state">state</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/os/Parcelable.html"><span class="identifier">Parcelable</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-save-instance-state.html">onSaveInstanceState</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onSaveInstanceState</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/os/Parcelable.html"><span class="identifier">Parcelable</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-size-changed.html">onSizeChanged</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onSizeChanged</span><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$onSizeChanged(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/w">w</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$onSizeChanged(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/h">h</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$onSizeChanged(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/oldw">oldw</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$onSizeChanged(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/oldh">oldh</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-state-change.html">onStateChange</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onStateChange</span><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$onStateChange(kotlin.Function3((tm.charlie.expandabletextview.ExpandableTextView, tm.charlie.expandabletextview.ExpandableTextView.State, , kotlin.Unit)))/func">func</span><span class="symbol">:</span>&nbsp;<span class="identifier">ExpandableTextView</span><span class="symbol">.</span><span class="symbol">(</span><span class="identifier">oldState</span><span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">newState</span><span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Listener which is being called when ExpandableTextView changes its <a href="state.html">state</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-text-changed.html">onTextChanged</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onTextChanged</span><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$onTextChanged(kotlin.CharSequence, kotlin.Int, kotlin.Int, kotlin.Int)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$onTextChanged(kotlin.CharSequence, kotlin.Int, kotlin.Int, kotlin.Int)/start">start</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$onTextChanged(kotlin.CharSequence, kotlin.Int, kotlin.Int, kotlin.Int)/lengthBefore">lengthBefore</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$onTextChanged(kotlin.CharSequence, kotlin.Int, kotlin.Int, kotlin.Int)/lengthAfter">lengthAfter</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="set-ellipsize.html">setEllipsize</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><s><span class="identifier">setEllipsize</span></s><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$setEllipsize(android.text.TextUtils.TruncateAt)/where">where</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/text/TextUtils/TruncateAt.html"><span class="identifier">TruncateAt</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="set-max-lines.html">setMaxLines</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><s><span class="identifier">setMaxLines</span></s><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$setMaxLines(kotlin.Int)/maxLines">maxLines</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="toggle.html">toggle</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toggle</span><span class="symbol">(</span><span class="identifier" id="tm.charlie.expandabletextview.ExpandableTextView$toggle(kotlin.Boolean)/withAnimation">withAnimation</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p><a href="expand.html">Expands</a> this ExpandableTextView if the <a href="state.html">state</a> is <a href="-state/-collapsed.html">Collapsed</a>,
+<a href="collapse.html">collapses</a> if the <a href="state.html">state</a> is <a href="-state/-expanded.html">Expanded</a> and does nothing otherwise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="update-state.html">updateState</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">updateState</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
