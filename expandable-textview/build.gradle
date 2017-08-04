@@ -25,6 +25,7 @@ android {
 dokka {
     outputFormat = 'jekyll'
     outputDirectory = "$rootDir/docs"
+    // includeNonPublic = false // Uncomment this ones the bug in dokka is fixed
 }
 
 dependencies {

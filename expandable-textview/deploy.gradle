@@ -26,7 +26,6 @@ install {
             name project.ext.name
             url project.ext.siteUrl
 
-            // Set your license
             licenses {
                 license {
                     name 'The MIT License (MIT)'
@@ -48,8 +47,6 @@ install {
         }
     }
 }
-
-
 
 if (project.hasProperty("android")) { // Android libraries
     task sourcesJar(type: Jar) {

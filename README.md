@@ -14,6 +14,7 @@ expanded/collapsed on configuration change. Extends from `AppCompatTextView`.
 - [Demo project](#demo-project)
 - [Getting started](#getting-started)
 - [Usage](#usage)
+  - [Supported features](#supported-features)
   - [Extensions](#extensions)
 - [Documentation](#documentation)
   - [Useful xml attributes](#useful-xml-attributes)
@@ -28,7 +29,7 @@ Take a look at the [demo project](demo)
 with examples of using this library in Kotlin with [Anko DSL](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
 as well as in Java with traditional xml.
 
-![Demo](http://i.imgur.com/ORISOA5.gif)
+![Demo](http://i.imgur.com/66NjOpS.gif)
 
 ## Getting Started
 
@@ -48,10 +49,57 @@ Current latest version is: [![Download](https://api.bintray.com/packages/arslanc
 
 Then use `ExpandableTextView` just as you would use any other `TextView`.
 
+Xml snippet:
+```xml
+<tm.charlie.expandabletextview.ExpandableTextView
+    android:id="@+id/expandable_textview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/lato_black"
+    android:text="@string/lipsum"
+    app:etv_collapsedLines="3"
+    app:etv_animationDuration="200"/>
+```
+
+Java snippet:
+```java
+ExpandableTextView expandableTextView = findViewById(R.id.expandable_textview);
+expandableTextView.setOnClickListener(new View.OnClickListener(){
+    @Override
+    public void onClick(View v){
+        // Make this ExpandableTextView expand/collapse on click event
+        ((ExpandableTextView) v).toggle();
+    }
+});
+```
+
+Kotlin snippet:
+```kotlin
+expandableTextView(text = lipsum) {
+    id = R.id.expandable_textview
+    typeface = ResourcesCompat.getFont(context, R.font.lato_black)
+    collapsedLines = 3
+    animationDuration = 200
+
+    // State change listener
+    onStateChange { oldState, newState -> toast("$oldState -> $newState") }
+
+    // Make ExpandableTextView expand/collapse on click
+    onClick { toggle() }
+}
+```
+
+### Supported features
+- Setting maximum number of collapsed lines and maxim number of expanded lines via both xml and Kotlin/Java.
+- Tracking the state of `ExpandableTextView` via read-only `state` property.
+ [Documentation of possible states](https://arslancharyev31.github.io/Anko-ExpandableTextView/tm.charlie.expandabletextview/-expandable-text-view/-state/index.html).
+  The state will be also automatically updated every time `text`, `collapsedLines` or `expandedLines` properties are changed.
+- `ExpandableTextView` preserves expanded/collapsed state on configuration change, e.g. orientation change, if unique id is provided.
+
 ### Extensions
 
 Additionally, library provides [extension function](https://kotlinlang.org/docs/reference/extensions.html)
-for simple DSL layout building. Like so:
+for simple DSL layout building, like so:
 ```kotlin
 expandableTextView(text = "Lorem ipsum...") {
     collapsedLines = 3
@@ -70,7 +118,7 @@ The library provides following attributes in addition to the ones defined in `Te
 
 | Attribute name             | Format                                        | Description | Default |
 | -------------------------|--------------------------------------------|-------------|---------|
-| *app:etv_animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds | 300 |
+| *app:etv_animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds. | 300 |
 | *app:etv_collapsedLines* | integer >= 0 | Number of lines in collapsed state. Must not be greater than `etv_expandedLines`. |[`Integer.MAX_VALUE`](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
 | *app:etv_expandedLines* | integer >= 0 | Number of lines in expanded state. Must not be less than `etv_collapsedLines`. | [`Integer.MAX_VALUE`](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
 
@@ -79,6 +127,10 @@ The library provides following attributes in addition to the ones defined in `Te
 therefore setting this attribute either via xml or programmatically will have no effect.
 - Library extensively uses `android:maxLines` internally, therefore this attribute shouldn't be used.
 Use `collapsedLines` or `expandedLines` instead.
+- Library extensively overrides `android:layout_height` internally, therefore this attribute shouldn't be used.
+You can set it to `wrap_content` in the layout editor.
+- For quite obvious reasons, `collapsedLines` cannot be greater than `expandedLines` and vice versa - `expandedLines`
+ cannot be less than `collapsedLines`. An `IllegalArgumentException` will be thrown if either of these rules is violated.
 
 ## Contributing
 
