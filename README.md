@@ -1,7 +1,7 @@
 # Anko-ExpandableTextView
 
 [![Download](https://api.bintray.com/packages/arslancharyev31/android/expandable-textview/images/download.svg) ](https://bintray.com/arslancharyev31/android/expandable-textview/_latestVersion)
-[![Preview the app](https://img.shields.io/badge/Preview-Appetize.io-orange.svg)](https://appetize.io/app/j4e8txb4a3ezqbc0r49vcvbwe8)
+[![Preview the app](https://img.shields.io/badge/Preview-Appetize.io-orange.svg)](https://appetize.io/app/38y5ut81hadtz8drptftt82qd8)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 An Expandable TextView for Android (Api 16+) which is entirely written in
@@ -14,10 +14,10 @@ expanded/collapsed on configuration change. Extends from `AppCompatTextView`.
 - [Demo project](#demo-project)
 - [Getting started](#getting-started)
 - [Usage](#usage)
-  - [Public properties](#public-properties)
-  - [Public functions](#public-functions)
-  - [Useful attributes](#useful-attributes)
   - [Extensions](#extensions)
+- [Documentation](#documentation)
+  - [Useful xml attributes](#useful-xml-attributes)
+  - [Important notes](#important-notes)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
@@ -28,7 +28,7 @@ Take a look at the [demo project](demo)
 with examples of using this library in Kotlin with [Anko DSL](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
 as well as in Java with traditional xml.
 
-![Demo](https://github.com/arslancharyev31/Anko-ExpandableTextView/blob/v1.0.2/demo.gif)
+![Demo](http://i.imgur.com/ORISOA5.gif)
 
 ## Getting Started
 
@@ -39,7 +39,7 @@ dependencies {
     implementation 'tm.charlie.androidlib:expandable-textview:$LatestVersion'
 }
 ```
-Current latest version is: [![Download](https://api.bintray.com/packages/arslancharyev31/android/expandable-textview/images/download.svg) ](https://bintray.com/arslancharyev31/android/expandable-textview/_latestVersion)
+Current latest version is: [![Download](https://api.bintray.com/packages/arslancharyev31/android/expandable-textview/images/download.svg)](https://bintray.com/arslancharyev31/android/expandable-textview/_latestVersion)
 
 ## Usage
 
@@ -48,7 +48,7 @@ Current latest version is: [![Download](https://api.bintray.com/packages/arslanc
 
 Then use `ExpandableTextView` just as you would use any other `TextView`.
 
-#### Extensions
+### Extensions
 
 Additionally, library provides [extension function](https://kotlinlang.org/docs/reference/extensions.html)
 for simple DSL layout building. Like so:
@@ -61,9 +61,9 @@ expandableTextView(text = "Lorem ipsum...") {
 
 ## Documentation
 
-Take a look at the library documentation with description of public functions and properties:
+Take a look at the library documentation with description of public functions and properties: http://arslancharyev31.github.io/Anko-ExpandableTextView
 
-#### Useful xml attributes
+### Useful xml attributes
 
 You can use `ExpandableTextView` in xml layouts in the same way as you would `TextView`.
 The library provides following attributes in addition to the ones defined in `TextView`.
@@ -74,7 +74,7 @@ The library provides following attributes in addition to the ones defined in `Te
 | *app:etv_collapsedLines* | integer >= 0 | Number of lines in collapsed state. Must not be greater than `etv_expandedLines`. |[`Integer.MAX_VALUE`](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
 | *app:etv_expandedLines* | integer >= 0 | Number of lines in expanded state. Must not be less than `etv_collapsedLines`. | [`Integer.MAX_VALUE`](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
 
-#### Important notes
+### Important notes
 - Library overrides `android:ellipsize` attribute to `TruncateAt.END` in order to ensure correct behaviour,
 therefore setting this attribute either via xml or programmatically will have no effect.
 - Library extensively uses `android:maxLines` internally, therefore this attribute shouldn't be used.
