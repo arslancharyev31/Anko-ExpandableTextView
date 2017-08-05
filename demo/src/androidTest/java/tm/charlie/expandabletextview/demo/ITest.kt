@@ -20,6 +20,12 @@ import tm.charlie.expandabletextview.ExpandableTextView
 import tm.charlie.expandabletextview.ExpandableTextView.State.*
 import kotlin.properties.Delegates
 
+/**
+ * Implementation of test functions.
+ * All test are meant to be run on 1920x1980 420 dpi device/emulator.
+ * You may need to run test involving rotation multiple times if they fail,
+ * because of the short delay after rotation.
+ * */
 interface ITest {
 	val actionDelay: Long get() = 0
 	val expandableTextView get() = currentActivity.find<ExpandableTextView>(R.id.expandable_textview)

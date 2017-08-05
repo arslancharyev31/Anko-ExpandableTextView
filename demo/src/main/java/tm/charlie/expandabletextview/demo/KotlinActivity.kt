@@ -83,9 +83,9 @@ class KotlinActivity: AppCompatActivity() {
 						textView("Demo text:")
 						spinner {
 							id = R.id.spinner_demo_text
-							val texts = arrayOf(lipsum.substring(0..30), lipsum.substring(0..100), lipsum)
+							val texts = arrayOf(lipsum.substring(0..30), lipsum.substring(0..70), lipsum.substring(0..100), lipsum)
 							adapter = ArrayAdapter<String>(ctx, R.layout.support_simple_spinner_dropdown_item, texts)
-							setSelection(2)
+							setSelection(texts.size - 1)
 							onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
 								override fun onNothingSelected(parent: AdapterView<*>?) {}
 								override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {

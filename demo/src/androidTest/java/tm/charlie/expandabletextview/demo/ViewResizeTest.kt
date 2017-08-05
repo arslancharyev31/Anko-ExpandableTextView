@@ -52,13 +52,13 @@ class ViewResizeTest: ITest {
 	}
 	
 	@Test fun changeTextTest(){
-		selectSpinnerItem(R.id.spinner_demo_text, 1)// "3 line text"
+		selectSpinnerItem(R.id.spinner_demo_text, 2)// "3 lines text"
 		checkIfStatic()
 		
 		selectSpinnerItem(R.id.spinner_demo_text, 0)// "1 line text"
 		checkIfStatic()
 		
-		selectSpinnerItem(R.id.spinner_demo_text, 2)// "10 line text"
+		selectSpinnerItem(R.id.spinner_demo_text, 3)// "10 lines text"
 		checkIfCollapsed()
 		
 		clickOnExpandableTextView()
@@ -67,7 +67,7 @@ class ViewResizeTest: ITest {
 		selectSpinnerItem(R.id.spinner_demo_text, 0)// "1 line text"
 		checkIfStatic()
 		
-		selectSpinnerItem(R.id.spinner_demo_text, 2)// "10 line text"
+		selectSpinnerItem(R.id.spinner_demo_text, 3)// "10 lines text"
 		checkIfExpanded()
 	}
 }

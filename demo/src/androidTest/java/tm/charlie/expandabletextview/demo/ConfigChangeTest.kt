@@ -8,8 +8,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 /**
- * You may need to run this test multiple times if it fails,
- * because of the short delay after rotation.
  * */
 @RunWith(AndroidJUnit4::class)
 class ConfigChangeTest: ITest {
@@ -45,5 +43,22 @@ class ConfigChangeTest: ITest {
 		
 		clickOnExpandableTextView()
 		checkIfCollapsed()
+	}
+	
+	@Test fun orientationStateChangeTest(){
+		clickOnExpandableTextView()
+		checkIfExpanded()
+		
+		selectSpinnerItem(R.id.spinner_collapsed_lines, 0)// 1
+		checkIfExpanded()
+		
+		selectSpinnerItem(R.id.spinner_demo_text, 1)// "2 lines text in portrait, 1 line in landscape"
+		checkIfExpanded()
+		
+		rotateLandscape(1000)
+		checkIfStatic()
+		
+		rotatePortrait()
+		checkIfCollapsed() // Should it be Expanded?
 	}
 }

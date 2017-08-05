@@ -47,8 +47,8 @@ open class ExpandableTextView: AppCompatTextView {
 		}.recycle()
 	}
 	
-	protected fun updateState() {
-		@Suppress("NON_EXHAUSTIVE_WHEN")
+	@Suppress("NON_EXHAUSTIVE_WHEN")
+	protected fun updateState(reapply: Boolean = false) {
 		when (state) {
 			Collapsing, Expanding -> return
 		}
@@ -65,7 +65,10 @@ open class ExpandableTextView: AppCompatTextView {
 						Static
 					else Expanded
 				}
-		
+		if (reapply) when (state) {
+			Collapsed -> collapse(withAnimation = false, forceCollapse = true)
+			Expanded -> expand(withAnimation = false, forceExpand = true)
+		}
 	}
 	
 	// Public properties with protected setters
@@ -289,7 +292,12 @@ open class ExpandableTextView: AppCompatTextView {
 		
 		// Expanding ETV when it is not yet shown may yield NPE
 		// Therefore we should delay its call
-		post { if (ss.state == Expanded) expand(withAnimation = false, forceExpand = true) }
+		post {
+			when (ss.state) {
+				Collapsed, Expanded, Static -> updateState()
+				Collapsing, Expanding -> return@post
+			}
+		}
 	}
 	
 	/** Protected class that is being used to save and restore [ExpandableTextView]'s state on configuration change. */
