@@ -48,27 +48,28 @@ open class ExpandableTextView: AppCompatTextView {
 	}
 	
 	@Suppress("NON_EXHAUSTIVE_WHEN")
-	protected fun updateState(reapply: Boolean = false) {
+	protected fun updateState(restoredState: State? = null) {
 		when (state) {
 			Collapsing, Expanding -> return
 		}
 		log("updateState")
-		state =
-				if (isEllipsized) {
-					if (collapsedLines != expandedLines) {
-						if (lineCount == expandedLines)
-							Expanded
-						else Collapsed
-					} else Static
-				} else {
-					if (collapsedLines == expandedLines || lineCount <= collapsedLines)
-						Static
-					else Expanded
-				}
-		if (reapply) when (state) {
+		when (restoredState) {
 			Collapsed -> collapse(withAnimation = false, forceCollapse = true)
 			Expanded -> expand(withAnimation = false, forceExpand = true)
+			else -> state =
+					if (isEllipsized) {
+						if (collapsedLines != expandedLines) {
+							if (lineCount == expandedLines)
+								Expanded
+							else Collapsed
+						} else Static
+					} else {
+						if (collapsedLines == expandedLines || lineCount <= collapsedLines)
+							Static
+						else Expanded
+					}
 		}
+		
 	}
 	
 	// Public properties with protected setters
@@ -98,21 +99,22 @@ open class ExpandableTextView: AppCompatTextView {
 	 * Maximum number of lines in [collapsed][Collapsed] [state]. [Integer.MAX_VALUE] by default.
 	 * @throws [IllegalArgumentException] if number of collapsed lines is being set to number greater than [expandedLines].
 	 * */
-	var collapsedLines = Integer.MAX_VALUE; set (value) {
-		when {
-			(value > expandedLines) -> throw IllegalArgumentException("Collapsed lines($value) cannot be greater than expanded lines($expandedLines)")
-			(value < 0) -> field = 0
-			(field == value) -> return
-			else -> field = value
+	var collapsedLines = Integer.MAX_VALUE
+		set (value) {
+			field = when {
+				(value > expandedLines) -> throw IllegalArgumentException("Collapsed lines($value) cannot be greater than expanded lines($expandedLines)")
+				(value < 0) -> 0
+				(field == value) -> return
+				else -> value
+			}
+			// here new collapsedLines <= expandedLines and new collapsedLines != old collapsedLines
+			// TODO: Test Collapsing and Expanding conditions
+			when (state) {
+				Collapsed, Collapsing, Static -> collapse(withAnimation = false, forceCollapse = true)
+				Expanding -> doNothing()
+				Expanded -> if (field == expandedLines) state = Static else doNothing()
+			}
 		}
-		// here new collapsedLines <= expandedLines and new collapsedLines != old collapsedLines
-		// TODO: Test Collapsing and Expanding conditions
-		when (state) {
-			Collapsed, Collapsing, Static -> collapse(withAnimation = false, forceCollapse = true)
-			Expanding -> doNothing()
-			Expanded -> if (field == expandedLines) state = Static else doNothing()
-		}
-	}
 	
 	/**
 	 * Maximum number of lines in the [expanded][Expanded] [state]. [Integer.MAX_VALUE] by default.
@@ -120,11 +122,11 @@ open class ExpandableTextView: AppCompatTextView {
 	 * */
 	var expandedLines = Integer.MAX_VALUE
 		set(value) {
-			when {
-				(value < collapsedLines) -> throw IllegalArgumentException("Expanded lines($value) cannot be less than collapsed lines($collapsedLines)")
-				(value < 0) -> field = 0
+			field = when {
+				(value < collapsedLines) -> throw IllegalArgumentException("Expanded lines ($value) cannot be less than collapsed lines($collapsedLines)")
+				(value < 0) -> 0
 				(field == value) -> return
-				else -> field = value
+				else -> value
 			}
 			// here new expandedLines >= collapsedLines and new expandedLines != old expandedLines
 			// TODO: Test Collapsing and Expanding conditions
@@ -156,7 +158,8 @@ open class ExpandableTextView: AppCompatTextView {
 	 * @param [withAnimation] should it toggle with animation or instantaneously. **true** by default.
 	 * @return **true** if [ExpandableTextView] started expanding/collapsing, **false** otherwise.
 	 */
-	@JvmOverloads fun toggle(withAnimation: Boolean = true) = when (state) {
+	@JvmOverloads
+	fun toggle(withAnimation: Boolean = true) = when (state) {
 		Expanded -> collapse(withAnimation)
 		Collapsed -> expand(withAnimation)
 		else -> false
@@ -169,7 +172,8 @@ open class ExpandableTextView: AppCompatTextView {
 	 * the [collapsed][Collapsed] [state]. **false** by default.
 	 * @return **true** if [ExpandableTextView] started expanding, **false** otherwise.
 	 */
-	@JvmOverloads fun expand(withAnimation: Boolean = true, forceExpand: Boolean = false): Boolean {
+	@JvmOverloads
+	fun expand(withAnimation: Boolean = true, forceExpand: Boolean = false): Boolean {
 		if (state == Collapsed || forceExpand) {
 			if (withAnimation) {
 				state = Expanding
@@ -214,7 +218,8 @@ open class ExpandableTextView: AppCompatTextView {
 	 * the [expanded][Expanded] [state]. **false** by default.
 	 * @return **true** if [ExpandableTextView] started collapsing, **false** otherwise.
 	 */
-	@JvmOverloads fun collapse(withAnimation: Boolean = true, forceCollapse: Boolean = false): Boolean {
+	@JvmOverloads
+	fun collapse(withAnimation: Boolean = true, forceCollapse: Boolean = false): Boolean {
 		if (state == Expanded || forceCollapse) {
 			if (withAnimation) {
 				state = Collapsing
@@ -294,8 +299,10 @@ open class ExpandableTextView: AppCompatTextView {
 		// Therefore we should delay its call
 		post {
 			when (ss.state) {
-				Collapsed, Expanded, Static -> updateState()
-				Collapsing, Expanding -> return@post
+				Collapsed, Expanded -> updateState(restoredState = ss.state)
+				Collapsing -> updateState(restoredState = Collapsed)
+				Expanding -> updateState(restoredState = Expanded)
+				else -> return@post
 			}
 		}
 	}
