@@ -84,7 +84,7 @@ expandableTextView(text = lipsum) {
     // State change listener
     onStateChange { oldState, newState -> toast("$oldState -> $newState") }
 
-    // Make ExpandableTextView expand/collapse on click
+    // Make ExpandableTextView expand/collapse on click event
     onClick { toggle() }
 }
 ```
@@ -118,9 +118,9 @@ The library provides following attributes in addition to the ones defined in `Te
 
 | Attribute name             | Format                                        | Description | Default |
 | -------------------------|--------------------------------------------|-------------|---------|
-| *app:etv_animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds. | 300 |
-| *app:etv_collapsedLines* | integer >= 0 | Number of lines in collapsed state. Must not be greater than `etv_expandedLines`. |[`Integer.MAX_VALUE`](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
-| *app:etv_expandedLines* | integer >= 0 | Number of lines in expanded state. Must not be less than `etv_collapsedLines`. | [`Integer.MAX_VALUE`](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
+| *etv_animationDuration* | integer >= 0 | Duration of expand/collapse animation in milliseconds. | 300 |
+| *etv_collapsedLines* | integer >= 0 | Number of lines in collapsed state. Must not be greater than `etv_expandedLines`. |[`Integer.MAX_VALUE`](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
+| *etv_expandedLines* | integer >= 0 | Number of lines in expanded state. Must not be less than `etv_collapsedLines`. | [`Integer.MAX_VALUE`](https://developer.android.com/reference/java/lang/Integer.html#MAX_VALUE) |
 
 ### Important notes
 - Library overrides `android:ellipsize` attribute to `TruncateAt.END` in order to ensure correct behaviour,
